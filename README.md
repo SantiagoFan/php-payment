@@ -1,4 +1,4 @@
-# PHP-JOIN-COMMON php 常用公共类
+# PHP-JOIN-PAYMENT php 支付工程
 
 ### composer 安装
 需要 composer 版本2+
