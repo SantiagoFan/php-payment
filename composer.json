@@ -1,0 +1,23 @@
+{
+    "name": "join/php-payment",
+    "description": "php",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "SanFan",
+            "email": "san_fan@qq.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.2.0",
+        "topthink/framework": "5.1.*",
+        "lcobucci/jwt": "^3.4"
+    },
+    "autoload": {
+        "psr-4": {
+			"JoinPhpPayment\\": "src/"
+		}
+    }
+}
