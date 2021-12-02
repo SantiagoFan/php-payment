@@ -12,8 +12,8 @@
     "minimum-stability": "stable",
     "require": {
         "php": ">=7.2.0",
-        "topthink/framework": "5.1.*",
-        "lcobucci/jwt": "^3.4"
+        "alipaysdk/easysdk": "^2.2",
+        "overtrue/wechat": "~4.0"
     },
     "autoload": {
         "psr-4": {

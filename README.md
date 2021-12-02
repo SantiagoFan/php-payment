@@ -4,7 +4,7 @@
 需要 composer 版本2+
 
 ```
-composer require join/php-common
+composer require join/php-payment
 ```
 ### require 依赖
 
