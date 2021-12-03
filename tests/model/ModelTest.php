@@ -1,22 +1,28 @@
 <?php
 
-namespace model;
+namespace tests\model;
 
+use JoinPhpPayment\core\PayClient;
 use JoinPhpPayment\model\Model_PayOrder;
+use JoinPhpPayment\tests\model\MyOrder AS M;
 use PHPUnit\Framework\TestCase;
 use think\Db;
 use think\facade\Config;
 
 class ModelTest extends TestCase
 {
-    public function testModel(){
+    public function testPay(){
         $config =$this->getConfig();
         Db::init($config);
-        $res = Model_PayOrder::where(['id'=>'1'])
-            ->fetchSql()
-            ->select();
-        echo $res;
-        $this->assertEquals('','');
+
+        $bus_order = MyOrder::get('10001');
+
+        // 发起支付
+        $client = PayClient::WEIXIN_PAY; //小程序参数
+        $option = [];
+        $res = $bus_order->PayOrder($client,$option);
+        var_dump($res);
+        echo 'ddd';
     }
     private function getConfig(){
         return [

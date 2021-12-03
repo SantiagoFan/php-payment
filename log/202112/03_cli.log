@@ -10,3 +10,203 @@ info
 sql
 [2021-12-03T10:41:16+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002281s ]
 sql
+[2021-12-03T10:43:58+08:00][ error ] [0]Parse error: syntax error, unexpected 'echo' (T_ECHO)[F:\MDS开源\join-php-payment\tests\model\ModelTest.php:16]
+error
+[2021-12-03T10:44:30+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T10:44:30+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001335s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T10:44:30+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.047029s ]
+sql
+[2021-12-03T10:44:30+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '111111' LIMIT 1 [ RunTime:0.000364s ]
+sql
+[2021-12-03T10:45:12+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T10:45:12+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001416s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T10:45:12+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002391s ]
+sql
+[2021-12-03T10:45:12+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '111111' LIMIT 1 [ RunTime:0.000283s ]
+sql
+[2021-12-03T10:45:45+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T10:45:45+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001361s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T10:45:45+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002272s ]
+sql
+[2021-12-03T10:45:45+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '111111' LIMIT 1 [ RunTime:0.000253s ]
+sql
+[2021-12-03T10:45:53+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T10:45:53+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001407s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T10:45:53+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002261s ]
+sql
+[2021-12-03T10:45:53+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '111111' LIMIT 1 [ RunTime:0.000340s ]
+sql
+[2021-12-03T10:46:11+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T10:46:11+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001254s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T10:46:11+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002175s ]
+sql
+[2021-12-03T10:46:11+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '111111' LIMIT 1 [ RunTime:0.000264s ]
+sql
+[2021-12-03T10:50:00+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T10:50:00+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.012872s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T10:50:00+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002509s ]
+sql
+[2021-12-03T10:50:00+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '111111' LIMIT 1 [ RunTime:0.000269s ]
+sql
+[2021-12-03T10:50:09+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T10:50:09+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001228s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T10:50:09+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002270s ]
+sql
+[2021-12-03T10:50:09+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '111111' LIMIT 1 [ RunTime:0.000208s ]
+sql
+[2021-12-03T14:50:14+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T14:50:14+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.004140s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T14:50:14+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.027071s ]
+sql
+[2021-12-03T14:50:14+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` [ RunTime:0.066125s ]
+sql
+[2021-12-03T14:50:47+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T14:50:47+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001362s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T14:50:47+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.002130s ]
+sql
+[2021-12-03T14:51:39+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T14:51:39+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001386s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T14:51:39+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.002231s ]
+sql
+[2021-12-03T14:51:39+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` IN ('') LIMIT 1 [ RunTime:0.000428s ]
+sql
+[2021-12-03T14:53:46+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T14:53:46+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001426s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T14:53:46+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.002302s ]
+sql
+[2021-12-03T14:53:46+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = 'aaddddd' LIMIT 1 [ RunTime:0.000405s ]
+sql
+[2021-12-03T14:54:32+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T14:54:32+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001376s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T14:54:32+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.002258s ]
+sql
+[2021-12-03T14:54:32+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = 'aaddddd' LIMIT 1 [ RunTime:0.000317s ]
+sql
+[2021-12-03T14:55:59+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T14:55:59+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001386s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T14:55:59+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.002308s ]
+sql
+[2021-12-03T14:55:59+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = 'aaddddd' LIMIT 1 [ RunTime:0.000324s ]
+sql
+[2021-12-03T14:56:15+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T14:56:15+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001376s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T14:56:15+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.002334s ]
+sql
+[2021-12-03T14:56:15+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = 'aaddddd' LIMIT 1 [ RunTime:0.000317s ]
+sql
+[2021-12-03T14:57:13+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T14:57:13+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001519s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T14:57:13+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.002250s ]
+sql
+[2021-12-03T14:57:13+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = 'aaddddd' LIMIT 1 [ RunTime:0.000319s ]
+sql
+[2021-12-03T15:09:24+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T15:09:24+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001581s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T15:09:24+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.002322s ]
+sql
+[2021-12-03T15:09:24+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = 'aaddddd' LIMIT 1 [ RunTime:0.000244s ]
+sql
+[2021-12-03T15:28:05+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T15:28:05+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001522s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T15:28:05+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.002359s ]
+sql
+[2021-12-03T15:28:05+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000414s ]
+sql
+[2021-12-03T15:29:52+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T15:29:52+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001738s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T15:29:52+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.002291s ]
+sql
+[2021-12-03T15:29:52+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000243s ]
+sql
+[2021-12-03T15:37:48+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T15:37:48+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001553s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T15:37:48+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.002361s ]
+sql
+[2021-12-03T15:37:48+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000304s ]
+sql
+[2021-12-03T15:38:51+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T15:38:51+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001449s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T15:38:51+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.002273s ]
+sql
+[2021-12-03T15:38:51+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000249s ]
+sql
+[2021-12-03T15:39:19+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T15:39:19+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001328s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T15:39:19+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.002158s ]
+sql
+[2021-12-03T15:39:19+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000329s ]
+sql
+[2021-12-03T15:41:58+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T15:41:58+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001521s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T15:41:58+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.002497s ]
+sql
+[2021-12-03T15:41:58+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000325s ]
+sql
+[2021-12-03T15:42:29+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T15:42:29+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001444s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T15:42:29+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000687s ]
+sql
+[2021-12-03T15:42:29+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000308s ]
+sql
+[2021-12-03T15:42:42+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T15:42:42+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001316s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T15:42:42+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000705s ]
+sql
+[2021-12-03T15:42:42+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000248s ]
+sql
+[2021-12-03T15:53:05+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T15:53:05+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001502s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T15:53:05+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000858s ]
+sql
+[2021-12-03T15:53:05+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000341s ]
+sql

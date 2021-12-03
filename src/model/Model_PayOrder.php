@@ -24,6 +24,4 @@ class Model_PayOrder extends Model
     const STATE_REFUND_APPLY = 2 ;
     // 退款完成
     const STATE_REFUND_SUCCESS = 3 ;
-
-
 }
