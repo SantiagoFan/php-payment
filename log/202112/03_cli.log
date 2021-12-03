@@ -1,0 +1,12 @@
+[2021-12-03T10:22:56+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T10:36:27+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T10:36:27+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001380s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T10:41:16+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-03T10:41:16+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001463s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-03T10:41:16+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002281s ]
+sql
