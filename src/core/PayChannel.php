@@ -4,6 +4,7 @@ namespace JoinPhpPayment\core;
 
 use Exception;
 use JoinPhpPayment\channel\AlipayClient;
+use JoinPhpPayment\channel\IChannelClient;
 use JoinPhpPayment\channel\WxpayClient;
 
 /**

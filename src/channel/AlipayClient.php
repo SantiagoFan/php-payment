@@ -3,13 +3,8 @@
 namespace JoinPhpPayment\channel;
 
 use Alipay\EasySDK\Kernel\Factory;
-
-use app\payment\model\Model_PayOrder;
-use JoinPhpPayment\Core\IChannelClient;
 use think\Exception;
 use think\facade\Config;
-
-use app\wap\common\PaymentProcess;
 use think\facade\Log;// 支付成功出口
 
 /**

@@ -13,8 +13,9 @@ php：>=7.2.0
 ## 代码结构
 ```
 ├─src
-│  ├─encrypt
+│  ├─channel
 │  │      SM4.php               国密4加解密
+│  │      WxpayClient.php               国密4加解密
 │  └─utils
 │          FFmpeg.php           视频处理
 │          JwtAuth.php          jwt授权帮助类

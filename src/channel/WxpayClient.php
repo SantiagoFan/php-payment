@@ -2,16 +2,12 @@
 
 namespace JoinPhpPayment\channel;
 
-
-
 use EasyWeChat\Factory;
 use Exception;
 use GuzzleHttp\Exception\GuzzleException;
-use JoinPhpPayment\Core\IChannelClient;
 use JoinPhpPayment\core\PayChannel;
 use JoinPhpPayment\core\PayFactory;
 use JoinPhpPayment\model\Model_PayOrder;
-use app\wap\common\PaymentProcess;
 use think\facade\Log;
 
 
