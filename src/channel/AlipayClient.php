@@ -66,7 +66,7 @@ class AlipayClient implements IChannelClient
      * @param $pay_order        Model_PayOrder      订单标题
      * @param $extend array      业务订单号 商户订单号，商户网站订单系统中唯一订单号，必填
      */
-    public static function PrepayOrder(\JoinPhpPayment\model\Model_PayOrder $pay_order, array $extend)
+    public static function PrepayOrder(\JoinPhpPayment\base\Model_PayOrder $pay_order, array $extend)
     {
         // 支付宝支付逻辑
         $config = self::getAlipayConfig();

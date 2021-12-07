@@ -1,7 +1,7 @@
 <?php
 
 
-namespace JoinPhpPayment\Core;
+namespace JoinPhpPayment\core;
 
 use JoinPhpPayment\model\Model_PayOrder;
 

@@ -1,15 +1,13 @@
 <?php
 
-
 namespace JoinPhpPayment\core;
-
 
 use Exception;
 use JoinPhpPayment\channel\WxpayClient;
 use JoinPhpPayment\model\Model_PayOrder;
 use think\Controller;
 
-class PaymentNotifyController extends Controller
+class BaseNotifyController extends Controller
 {
     /**
      * 微信支付回调

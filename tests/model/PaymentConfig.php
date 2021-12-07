@@ -3,8 +3,8 @@
 
 namespace tests\model;
 
-use JoinPhpPayment\Core\IPayableOrder;
-use JoinPhpPayment\Core\IPaymentConfig;
+use JoinPhpPayment\core\IPayableOrder;
+use JoinPhpPayment\core\IPaymentConfig;
 use JoinPhpPayment\core\PayChannel;
 use JoinPhpPayment\core\PayClient;
 use think\Exception;

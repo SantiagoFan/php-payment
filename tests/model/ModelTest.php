@@ -25,9 +25,9 @@ class ModelTest extends TestCase
         $bus_order = MyOrder::get('10001');
 
         // 发起支付
-//        $client = PayClient::WEIXIN_QRCODE; //小程序参数
-//        $res = $bus_order->PayOrder($client,[]);
-//        var_dump($res);
+        $client = PayClient::WEIXIN_QRCODE; //小程序参数
+        $res = $bus_order->PayOrder($client,[]);
+        var_dump($res);
 
 //        $client = PayClient::WEIXIN_MP; //小程序参数
 //        $openid = 'ooaXI5WykGWLMM_UTtVJueqC-uz0';

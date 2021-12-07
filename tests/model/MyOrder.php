@@ -2,7 +2,7 @@
 
 namespace tests\model;
 
-use JoinPhpPayment\model\BasePayableOrder;
+use JoinPhpPayment\base\BasePayableOrder;
 use JoinPhpPayment\model\Model_PayOrder;
 
 class MyOrder extends BasePayableOrder

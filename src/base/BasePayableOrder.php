@@ -1,8 +1,9 @@
 <?php
-namespace JoinPhpPayment\model;
+namespace JoinPhpPayment\base;
 
 use JoinPhpPayment\core\IPayableOrder;
 use JoinPhpPayment\core\PayFactory;
+use JoinPhpPayment\model\Model_PayOrder;
 use think\Model;
 
 /**
