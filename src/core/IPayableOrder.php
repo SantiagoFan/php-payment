@@ -29,6 +29,13 @@ Interface IPayableOrder
     public function PayOrder(string $client, array $options);
 
     /**
+     * 支付成功后回调
+     * @param $pay_order Model_PayOrder 支付流水单
+     * @return null
+     */
+    public function PaySuccess(Model_PayOrder $pay_order);
+
+    /**
      * 退款
      * @param float $amount 支付金额
      * @param string $reason 支付流水单
@@ -37,17 +44,10 @@ Interface IPayableOrder
     public function RefundOrder(float $amount, string $reason);
 
     /**
-     * 支付成功后回调
-     * @param $pay_order Model_PayOrder 支付流水单
-     * @return null
-     */
-    public static function PaySuccess(Model_PayOrder $pay_order);
-
-    /**
      * 退款成功后业务订单处理
      * @param $pay_refund_order Model_PayOrder 支付退款流水单
      * @return null
      */
-    public static function RefundedSuccess(Model_PayOrder $pay_refund_order);
+    public function RefundedSuccess(Model_PayOrder $pay_refund_order);
 
 }

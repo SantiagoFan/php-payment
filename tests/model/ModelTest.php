@@ -3,26 +3,41 @@
 namespace tests\model;
 
 use JoinPhpPayment\core\PayClient;
-use JoinPhpPayment\model\Model_PayOrder;
-use JoinPhpPayment\tests\model\MyOrder AS M;
+use JoinPhpPayment\core\PayFactory;
+
 use PHPUnit\Framework\TestCase;
 use think\Db;
-use think\facade\Config;
+
 
 class ModelTest extends TestCase
 {
-    public function testPay(){
+    public function __construct($name = null, array $data = [], $dataName = '')
+    {
+        parent::__construct($name, $data, $dataName);
         $config =$this->getConfig();
         Db::init($config);
 
+        $config  = new PaymentConfig();
+        PayFactory::init($config);
+    }
+
+    public function testPay(){
         $bus_order = MyOrder::get('10001');
 
         // 发起支付
-        $client = PayClient::WEIXIN_PAY; //小程序参数
-        $option = [];
-        $res = $bus_order->PayOrder($client,$option);
-        var_dump($res);
-        echo 'ddd';
+//        $client = PayClient::WEIXIN_QRCODE; //小程序参数
+//        $res = $bus_order->PayOrder($client,[]);
+//        var_dump($res);
+
+//        $client = PayClient::WEIXIN_MP; //小程序参数
+//        $openid = 'ooaXI5WykGWLMM_UTtVJueqC-uz0';
+//        $res = $bus_order->PayOrder($client,[
+//            'openid'=>$openid
+//        ]);
+//        $res = $bus_order->RefundOrder(1,'用戶調用');
+        echo '----完成--------';
+//        echo json_encode($res);
+        echo '------完成--';
     }
     private function getConfig(){
         return [

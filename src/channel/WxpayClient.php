@@ -1,228 +1,218 @@
 <?php
-/**
- * 聚合支付
- * User: santiago-范文刚
- * Date: 19-8-14
- * Time: 上午9:19
- */
 
-namespace app\payment\channel;
+namespace JoinPhpPayment\channel;
 
-use app\api\controller\PackageOrder;
-use app\payment\model\Model_PayOrder;
+
+
 use EasyWeChat\Factory;
-use think\Exception;
-use think\facade\Config;
-
+use Exception;
+use GuzzleHttp\Exception\GuzzleException;
+use JoinPhpPayment\Core\IChannelClient;
+use JoinPhpPayment\core\PayChannel;
+use JoinPhpPayment\core\PayFactory;
+use JoinPhpPayment\model\Model_PayOrder;
 use app\wap\common\PaymentProcess;
-use think\facade\Log;// 支付成功出口
+use think\facade\Log;
+
+
+// 支付成功出口
 
 /**
  *
  * Class Payment
  * @package app\extend
  */
-class WxpayClient
+class WxpayClient implements IChannelClient
 {
+    /**
+     * 支付操作类
+     * @var \EasyWeChat\Payment\Application
+     */
+    private $app;
+    /**
+     * 配置
+     * @var array
+     */
+    private $config;
+    /**
+     * 渠道类型  对应  交易类型
+     * @var string[]
+     */
+    private $trade_type = [
+        PayChannel::WEIXIN_PAY_NATIVE => 'NATIVE',
+        PayChannel::WEIXIN_PAY_JS => 'JSAPI',
+    ];
+    public function __construct()
+    {
+        $this->config = PayFactory::getPayConfig('wxpay');
+        $this->app = Factory::payment($this->config);
+    }
     // +----------------------------------------------------------------------
-    // | 支付配置
+    // | 接口方法
     // +----------------------------------------------------------------------
     /**
+     * 支付订单 获取支付参数
+     * @param Model_PayOrder $pay_order
+     * @param array $options
      * @return array
+     * @throws Exception
      */
-    private static function getWxpayConfig($type='pay')
+    public function PayOrder(Model_PayOrder $pay_order, array $options): array
     {
-        $config = Config::get('api.wxpay');
-        if($type=='pay'){
-            $config['notify_url'] = 'https://' . Config::get('app_host') . '/payment/notify/wxpay';
-        }else if($type=='refund'){
-            $config['notify_url'] = 'https://' . Config::get('app_host') . '/payment/notify/wxrefund';
+        // 3.生成支付参数
+        $result = $this->PrepayOrder($pay_order,$options);
+        // 4.组装参数
+        if(isset($result['result_code']) && $result['result_code']=="SUCCESS"){
+            // js 支付参数
+            $trade_type =  $this->trade_type[$pay_order['pay_channel']];
+            if($trade_type == 'JSAPI'){
+                $config = $this->app->jssdk->bridgeConfig($result['prepay_id']);
+                return ['config'=>$config];
+            }
+            // native 支付参数
+            else if($trade_type == 'NATIVE'){
+                return [ "code_url"=>$result['code_url'] ];
+            }
+            else{
+                throw new Exception('支付类型异常');
+            }
         }
         else{
-            throw new \Exception('type 类型错误');
+            Log::error(json_encode($result));
+            throw new Exception("WxpayClient:下预付单错误".$result['err_code_des']);
         }
-        return $config;
     }
+
     /**
-     * 获取用于调取支付的参数
-     * @param $prepay
-     * @return array
+     * 支付成功通知处理
+     * @throws Exception
      */
-    public static function getPayParams($prepay_id)
-    {
-        $config = self::getWxpayConfig();
-        $app = Factory::payment($config);
-        $config = $app->jssdk->bridgeConfig($prepay_id); // 返回数组
-        return $config;
+    public function PayNotify(){
+        $response = $this->app->handlePaidNotify(function($data, $fail) {
+            $pay_order_id =$data['out_trade_no'];//商户订单号
+            $amount = $data['total_fee']/100; // 单位 分转元
+            $channel_no = $data['transaction_id']; //微信支付订单号
+
+            Log::info("****************** 参数格式正确  ：${$pay_order_id}******************");
+
+            $pay_order = Model_PayOrder::get($pay_order_id);
+            if($pay_order==null){
+                Log::error($pay_order_id."订单查询错误！，请查看具体逻辑代码");
+                return $fail('订单号错误');
+            }
+            Log::info("查询订单");
+            // 重新查询远程订单状态
+            $res = $this->QueryOrder($pay_order);
+            //微信记录
+            Log::info(json_encode($res));
+            if($res['trade_state']!="SUCCESS"){
+                return $fail('订单未正确支付');
+            }
+
+            if ($data['return_code'] === 'SUCCESS') { // return_code 表示通信状态，不代表支付状态
+                // 用户是否支付成功
+                if ($data['result_code'] === 'SUCCESS') {
+                    $pay_channel = $this->trade_type[$data['trade_type']];
+                    PayFactory::PaySuccess($pay_channel, $amount, $pay_order_id, $channel_no); //更新支付订单
+                }
+            } else {
+                return $fail('通信失败，请稍后再通知我');
+            }
+        });
+        $response->send();
     }
-    // 获得微信服务
-    public static function getWxApp()
-    {
-        $config = self::getWxpayConfig();
-        $app = Factory::payment($config);
-        return $app;
+
+    /**
+     * @throws Exception
+     */
+    public function RefundNotify(){
+        $response = $this->app->handleRefundedNotify(function ($message,$data,$fail) {
+            // 参数
+            $pay_refund_id = $data['out_refund_no'];
+            $pay_id = $data["out_trade_no"];
+            $channel_refund_no = $data['refund_id']; //微信退款订单号
+            $refund_amount = $data['refund_fee']/100; // 单位 分转元
+
+            if ($message['return_code'] === 'SUCCESS') { // return_code 表示通信状态，不代表支付状态
+                if ($data['refund_status'] === 'SUCCESS') {
+                    PayFactory::RefundSuccess($pay_refund_id,$refund_amount,$pay_id,$channel_refund_no); // 通知支付退款订单
+                }
+            } else {
+                return $fail('通信失败，请稍后再通知我');
+            }
+            return true; // 返回处理完成
+        });
+        $response->send();
     }
+
+    // +----------------------------------------------------------------------
+    // | 私有方法
+    // +----------------------------------------------------------------------
+
     /**
      * 下预付单-jsapi
-     * @param $pay_channel  string      支付渠道 WxPay,AliPay
-     * @param $title        string      订单标题
-     * @param $out_trade_no string      业务订单号 商户订单号，商户网站订单系统中唯一订单号，必填
-     * @param $total_fee    number      支付金额支付金额
-     * @param string $openid
-     * @param string $body
+     * @param Model_PayOrder $pay_order 订单标题
+     * @param $extend array      业务订单号 商户订单号，商户网站订单系统中唯一订单号，必填
+     * @throws Exception|GuzzleException
      */
-    public static function PrepayOrder($title, $out_trade_no, $total_fee, $openid = '', $body = ''
-        ,$profit_sharing ='N',$sub_merchant=null)
+    public function PrepayOrder(Model_PayOrder $pay_order, array $extend)
     {
-        // 微信支付逻辑
-        $config = self::getWxpayConfig();
-        $app = Factory::payment($config);
-        if($sub_merchant){
-            $app->setSubMerchant($sub_merchant);  // 子商户 AppID 为可选项
+        if(isset($extend['sub_merchant'])){
+            $this->app->setSubMerchant($extend['sub_merchant']);
         }
-        // 测试环境处理
-        if(Config::get('api.pay_test')==true){
-            $total_fee= 0.01; // 测试环境 一份钱测试
+        $pay_fee = intval(round($pay_order['amount'] * 100));
+        $trade_type = $this->trade_type[$pay_order['pay_channel']];
+        // 下单参数
+        $params = [
+            'body' => $pay_order['title'],
+            'out_trade_no' => $pay_order['id'],
+            'total_fee' => $pay_fee,// 微信以分为单位
+            'trade_type' => $trade_type,
+            'notify_url'=>$this->config['pay_notify_url']
+        ];
+
+        if($trade_type == 'JSAPI'){
+            $params['openid'] = $extend['openid'];
         }
-        $result = $app->order->unify([
-            'body' => $title,
-            'out_trade_no' => $out_trade_no,
-            'total_fee' =>intval(round($total_fee * 100)) ,// 微信以分为单位
-            'trade_type' => 'JSAPI',
-            'openid' => $openid,
-            'profit_sharing'=>$profit_sharing
-        ]);
-        return $result;
-    }
-    public static function PayOrder($pay_order,$options){
-        // 3.生成支付参数
-        $result=  self::PrepayOrder($pay_order['title'],$pay_order['id'],$pay_order['amount'],$options['openid']);
-        // 4.组装参数
-        if(isset($result['result_code']) && $result['result_code']=="SUCCESS"){
-            $config =self::getPayParams($result['prepay_id']);
-            return $config;
-        }
-        else{
-            Log::error(json_encode($result));
-            throw new \Exception("wxpay:下预付单错误");
-        }
+        return $this->app->order->unify($params);
     }
 
-    /**
-     * 下预付单-native
-     * @param $title
-     * @param $out_trade_no
-     * @param $total_fee
-     * @param string $openid
-     * @param string $body
-     * @param string $profit_sharing
-     * @param null $sub_merchant
-     * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
-     * @throws \EasyWeChat\Kernel\Exceptions\InvalidArgumentException
-     * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
-    public static function PrepayOrderNative($title, $out_trade_no, $total_fee,$profit_sharing ='N',$sub_merchant=null)
-    {
-        // 微信支付逻辑
-        $config = self::getWxpayConfig();
-        $app = Factory::payment($config);
-        if($sub_merchant){
-            $app->setSubMerchant($sub_merchant);  // 子商户 AppID 为可选项
-        }
-        // 测试环境处理
-        if(Config::get('api.pay_test')==true){
-            $total_fee= 0.01; // 测试环境 一份钱测试
-        }
-        $result = $app->order->unify([
-            'body' => $title,
-            'out_trade_no' => $out_trade_no,
-            'total_fee' =>intval(round($total_fee * 100)) ,// 微信以分为单位
-            'trade_type' => 'NATIVE',
-            'profit_sharing'=>$profit_sharing
-        ]);
-        return $result;
-    }
 
     /**
-     * 下预付单- native
-     * @param $pay_order
-     * @param $options
-     * @return array
-     * @throws \Exception
+     * @param Model_PayOrder $pay_refund_order
      */
-    public static function PayOrderNative($pay_order,$options){
-        // 3.生成支付参数
-        $result=  self::PrepayOrderNative($pay_order['title'],$pay_order['id'],$pay_order['amount']);
-        // 4.组装参数
-        if(isset($result['result_code']) && $result['result_code']=="SUCCESS"){
-            return [
-                "code_url"=>$result['code_url']
-            ];
-        }
-        else{
-            Log::error(json_encode($result));
-            throw new \Exception("wxpay:下预付单错误");
-        }
-    }
-    /**
-     * 退款
-     * @param $pay_refund_order
-     * @param $out_refund_no
-     * @param $refund_fee
-     * @param string $refund_desc
-     * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
-     * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
-     */
-    public static function RefundOrder($pay_refund_order){
+    public function RefundOrder(Model_PayOrder $pay_refund_order): array{
 
-        // 微信支付逻辑
-        $config = self::getWxpayConfig('refund');
-        $app = Factory::payment($config);
-        // 参数分别为：商户订单号、商户退款单号、订单金额、退款金额、其他参数
-        // 测试环境处理
-//        if(Config::get('api.pay_test')==true){
-//            // 测试环境 一份钱测试
-//            $pay_refund_order["pay_amount"] =  0.01;
-//            $pay_refund_order["refund_amount"] =  0.01;
-//        }
-        Log::info([
-            $pay_refund_order['pay_id'],
+        $total_fee = intval(round($pay_refund_order["original_amount"]*100));
+        $refund_fee = intval(round($pay_refund_order["amount"]*100));
+
+        $result = $this->app->refund->byOutTradeNumber(
+            $pay_refund_order['original_id'],
             $pay_refund_order["id"],
-            intval(round($pay_refund_order["pay_amount"]*100)),
-            intval(round($pay_refund_order["refund_amount"]*100)),
+            $total_fee,
+            $refund_fee,
             [
-                // 可在此处传入其他参数，详细参数见微信支付文档
-                'refund_desc' => $pay_refund_order["refund_desc"],
-                'notify_url'=>$config['notify_url']
-            ]
-        ]);
-        $result = $app->refund->byOutTradeNumber(
-            $pay_refund_order['pay_id'],
-            $pay_refund_order["id"],
-            intval(round($pay_refund_order["pay_amount"]*100)),
-            intval(round($pay_refund_order["refund_amount"]*100)),
-            [
-                // 可在此处传入其他参数，详细参数见微信支付文档
-                'refund_desc' => $pay_refund_order["refund_desc"],
-                'notify_url'=>$config['notify_url']
+                'refund_desc' => $pay_refund_order["title"],
+                'notify_url'=>$this->config['refund_notify_url']
             ]
         );
-        return $result;
+        // 返回状态
+        if ($result['return_code'] === 'SUCCESS'&& $result['result_code'] === 'SUCCESS') {
+            return [ "code"=>"pending" ];
+        } else {
+            return [ "code"=>"error","message"=> $result['return_msg'] ];
+        }
     }
     /**
      * 查询 支付平台订单信息
-     * @param $order
+     * @param Model_PayOrder $pay_order
      */
-    public static function QueryOrder($order,$sub_merchant=null)
+    public function QueryOrder($pay_order,$sub_merchant=null)
     {
-        $config = self::getWxpayConfig();
-        $app = Factory::payment($config);
         if($sub_merchant){
-            $app->setSubMerchant($sub_merchant);  // 子商户 AppID 为可选项
+            $this->app->setSubMerchant($sub_merchant);  // 子商户 AppID 为可选项
         }
-        $res = $app->order->queryByOutTradeNumber($order["id"]);
-//        $res = $app->order->queryByOutTradeNumber($order["id_v"]);
+        $res = $this->app->order->queryByOutTradeNumber($pay_order["id"]);
         //订单不存在
         if (!isset($res['result_code']) || $res['result_code'] != 'SUCCESS') {
             return null;
@@ -237,9 +227,9 @@ class WxpayClient
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
      */
     public static function QueryRefundOrder($outTradeNumber){
-        $config = self::getWxpayConfig();
-        $app = Factory::payment($config);
-        $res = $app->refund->queryByOutTradeNumber($outTradeNumber);
-        return $res;
+//        $config = self::getWxpayConfig();
+//        $app = Factory::payment($config);
+//        $res = $app->refund->queryByOutTradeNumber($outTradeNumber);
+//        return $res;
     }
 }

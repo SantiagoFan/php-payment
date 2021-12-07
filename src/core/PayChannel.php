@@ -1,15 +1,10 @@
 <?php
-/**
- * 聚合支付
- * User: santiago-范文刚
- * Date: 19-8-14
- * Time: 上午9:19
- */
 
-namespace app\payment\common;
+namespace JoinPhpPayment\core;
 
-use JoinPhpPayment\core\PayClient;
 use Exception;
+use JoinPhpPayment\channel\AlipayClient;
+use JoinPhpPayment\channel\WxpayClient;
 
 /**
  * 定义支付渠道
@@ -18,30 +13,33 @@ use Exception;
  */
 class PayChannel{
     // 原生微信
-    const WEIXIN_PAY ="wxpay";
+    const WEIXIN_PAY_JS ="wxpay_js";
     const WEIXIN_PAY_NATIVE = "wxpay_native";
+    const WEIXIN_PAY_APP = "wxpay_app";
     // 原生支付宝
-    const ALI_PAY ="alipay";
+    const ALI_PAY_JS ="alipay_js";
     const ALI_PAY_NATIVE = "alipay_native";
-
-    const channel=[
-        PayClient::WEIXIN_PAY => PayChannel::WEIXIN_PAY,
-        PayClient::WEIXIN_QRCODE => PayChannel::WEIXIN_PAY_NATIVE,
-        PayClient::ALI_MP => PayChannel::ALI_PAY,
-        PayClient::ALI_PAY_QRCODE => PayChannel::ALI_PAY_NATIVE,
-    ];
+    const ALI_PAY_APP = "alipay_app";
 
     /**
-     * 设备通道 对应支付通道
-     * @param string $client
+     * 支付方式 换取 渠道操作类
+     * @param string $pay_channel
+     * @return mixed
      * @throws Exception
      */
-    public static function GetPayChannel(string $client){
-        if(isset(self::channel[$client])){
-            return self::channel[$client];
-        }
-        else{
-            throw  new Exception('未找到对应支付通道');
+    public static function GetPayChannelApp(string $pay_channel):IChannelClient{
+        switch ($pay_channel){
+            // 微信支付方式
+            case PayChannel::WEIXIN_PAY_NATIVE:
+            case PayChannel::WEIXIN_PAY_JS:
+            case PayChannel::WEIXIN_PAY_APP: return new WxpayClient();
+
+            // 支付宝
+            case PayChannel::ALI_PAY_NATIVE:
+            case PayChannel::ALI_PAY_JS:
+            case PayChannel::ALI_PAY_APP: return new AlipayClient();
+            default:
+                throw new Exception("GetPayChannelApp:支付渠道 {$pay_channel} 错误");
         }
     }
 }

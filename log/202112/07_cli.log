@@ -1,0 +1,1174 @@
+[2021-12-07T10:15:59+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T10:15:59+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001660s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T10:15:59+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000951s ]
+sql
+[2021-12-07T10:15:59+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000347s ]
+sql
+[2021-12-07T14:14:33+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T14:14:33+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.004952s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T14:14:33+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.002917s ]
+sql
+[2021-12-07T14:14:33+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000405s ]
+sql
+[2021-12-07T14:15:26+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T14:15:26+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001435s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T14:15:26+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.001009s ]
+sql
+[2021-12-07T14:15:26+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000326s ]
+sql
+[2021-12-07T14:15:26+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T14:15:26+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002877s ]
+sql
+[2021-12-07T14:15:26+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.033622s ]
+sql
+[2021-12-07T14:15:37+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T14:15:37+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001338s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T14:15:37+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000903s ]
+sql
+[2021-12-07T14:15:37+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000270s ]
+sql
+[2021-12-07T14:15:37+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T14:15:37+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002454s ]
+sql
+[2021-12-07T14:15:37+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000355s ]
+sql
+[2021-12-07T14:17:23+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T14:17:23+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001561s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T14:17:23+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000840s ]
+sql
+[2021-12-07T14:17:23+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000357s ]
+sql
+[2021-12-07T14:17:23+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T14:17:23+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002406s ]
+sql
+[2021-12-07T14:17:23+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000453s ]
+sql
+[2021-12-07T14:17:23+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.051376s ]
+sql
+[2021-12-07T14:18:05+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T14:18:05+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001460s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T14:18:05+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000801s ]
+sql
+[2021-12-07T14:18:05+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000242s ]
+sql
+[2021-12-07T14:18:05+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T14:18:05+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002407s ]
+sql
+[2021-12-07T14:18:05+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000294s ]
+sql
+[2021-12-07T14:18:05+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000212s ]
+sql
+[2021-12-07T14:18:19+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T14:18:19+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001268s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T14:18:19+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000954s ]
+sql
+[2021-12-07T14:18:19+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000311s ]
+sql
+[2021-12-07T14:18:19+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T14:18:19+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002586s ]
+sql
+[2021-12-07T14:18:19+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000346s ]
+sql
+[2021-12-07T14:18:19+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000296s ]
+sql
+[2021-12-07T14:18:38+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T14:18:38+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001410s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T14:18:38+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000898s ]
+sql
+[2021-12-07T14:18:38+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000317s ]
+sql
+[2021-12-07T14:18:38+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T14:18:38+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002730s ]
+sql
+[2021-12-07T14:18:38+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000353s ]
+sql
+[2021-12-07T14:18:38+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000306s ]
+sql
+[2021-12-07T14:19:02+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T14:19:02+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001348s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T14:19:02+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000876s ]
+sql
+[2021-12-07T14:19:02+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000278s ]
+sql
+[2021-12-07T14:19:02+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T14:19:02+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002478s ]
+sql
+[2021-12-07T14:19:02+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000439s ]
+sql
+[2021-12-07T14:19:02+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000391s ]
+sql
+[2021-12-07T14:19:27+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T14:19:27+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001399s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T14:19:27+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000926s ]
+sql
+[2021-12-07T14:19:27+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000315s ]
+sql
+[2021-12-07T14:19:27+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T14:19:27+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002500s ]
+sql
+[2021-12-07T14:19:27+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000356s ]
+sql
+[2021-12-07T14:19:27+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000301s ]
+sql
+[2021-12-07T14:21:29+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T14:21:29+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001326s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T14:21:29+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000979s ]
+sql
+[2021-12-07T14:21:29+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000334s ]
+sql
+[2021-12-07T14:21:58+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T14:21:58+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001354s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T14:21:58+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000739s ]
+sql
+[2021-12-07T14:21:58+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000240s ]
+sql
+[2021-12-07T14:22:12+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T14:22:12+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001353s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T14:22:12+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000933s ]
+sql
+[2021-12-07T14:22:12+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000338s ]
+sql
+[2021-12-07T14:22:12+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T14:22:12+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002455s ]
+sql
+[2021-12-07T14:22:12+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000365s ]
+sql
+[2021-12-07T14:22:12+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000302s ]
+sql
+[2021-12-07T14:23:30+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T14:23:30+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001322s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T14:23:30+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000945s ]
+sql
+[2021-12-07T14:23:30+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000235s ]
+sql
+[2021-12-07T14:23:30+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T14:23:30+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002478s ]
+sql
+[2021-12-07T14:23:30+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000284s ]
+sql
+[2021-12-07T14:23:30+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000252s ]
+sql
+[2021-12-07T14:24:58+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T14:24:58+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001597s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T14:24:58+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.001002s ]
+sql
+[2021-12-07T14:24:58+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000315s ]
+sql
+[2021-12-07T14:24:58+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T14:24:58+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002366s ]
+sql
+[2021-12-07T14:24:58+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000340s ]
+sql
+[2021-12-07T14:24:58+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000341s ]
+sql
+[2021-12-07T15:27:15+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:27:15+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001712s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:27:15+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.001004s ]
+sql
+[2021-12-07T15:27:15+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000367s ]
+sql
+[2021-12-07T15:27:15+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:27:15+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000677s ]
+sql
+[2021-12-07T15:27:15+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000456s ]
+sql
+[2021-12-07T15:27:15+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000380s ]
+sql
+[2021-12-07T15:27:15+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207514997106879' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay' , '-0' , '用戶調用' , 1 , '2021-12-07 15:27:15' , 0) [ RunTime:0.000431s ]
+sql
+[2021-12-07T15:28:07+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:28:07+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001360s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:28:07+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000705s ]
+sql
+[2021-12-07T15:28:07+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000264s ]
+sql
+[2021-12-07T15:28:07+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:28:07+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002276s ]
+sql
+[2021-12-07T15:28:07+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000402s ]
+sql
+[2021-12-07T15:28:07+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000307s ]
+sql
+[2021-12-07T15:28:07+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207554899529116' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay' , '-0' , '用戶調用' , 1 , '2021-12-07 15:28:07' , 0) [ RunTime:0.000349s ]
+sql
+[2021-12-07T15:29:41+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:29:41+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001246s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:29:41+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000814s ]
+sql
+[2021-12-07T15:29:41+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000322s ]
+sql
+[2021-12-07T15:29:41+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:29:41+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002248s ]
+sql
+[2021-12-07T15:29:41+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000481s ]
+sql
+[2021-12-07T15:29:41+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000377s ]
+sql
+[2021-12-07T15:29:41+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207535153109781' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay' , '-0' , '用戶調用' , 1 , '2021-12-07 15:29:41' , 0) [ RunTime:0.000381s ]
+sql
+[2021-12-07T15:29:50+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:29:50+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001346s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:29:50+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000734s ]
+sql
+[2021-12-07T15:29:50+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000336s ]
+sql
+[2021-12-07T15:29:50+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:29:50+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002554s ]
+sql
+[2021-12-07T15:29:50+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000473s ]
+sql
+[2021-12-07T15:29:50+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000373s ]
+sql
+[2021-12-07T15:29:50+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207101535249731' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay' , '-0' , '用戶調用' , 1 , '2021-12-07 15:29:50' , 0) [ RunTime:0.000396s ]
+sql
+[2021-12-07T15:30:48+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:30:48+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001435s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:30:48+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000819s ]
+sql
+[2021-12-07T15:30:48+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000258s ]
+sql
+[2021-12-07T15:30:48+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:30:48+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002265s ]
+sql
+[2021-12-07T15:30:48+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000435s ]
+sql
+[2021-12-07T15:30:48+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000393s ]
+sql
+[2021-12-07T15:30:48+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207565350486753' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js2' , '-0' , '用戶調用' , 1 , '2021-12-07 15:30:48' , 0) [ RunTime:0.000376s ]
+sql
+[2021-12-07T15:31:08+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:31:08+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001377s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:31:08+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000851s ]
+sql
+[2021-12-07T15:31:08+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000315s ]
+sql
+[2021-12-07T15:31:08+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:31:08+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002253s ]
+sql
+[2021-12-07T15:31:08+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000495s ]
+sql
+[2021-12-07T15:31:08+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000431s ]
+sql
+[2021-12-07T15:31:08+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207995554572355' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js2' , '-0' , '用戶調用' , 1 , '2021-12-07 15:31:08' , 0) [ RunTime:0.000392s ]
+sql
+[2021-12-07T15:31:20+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:31:20+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001379s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:31:20+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000779s ]
+sql
+[2021-12-07T15:31:20+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000319s ]
+sql
+[2021-12-07T15:31:20+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:31:20+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002238s ]
+sql
+[2021-12-07T15:31:20+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000510s ]
+sql
+[2021-12-07T15:31:20+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000430s ]
+sql
+[2021-12-07T15:31:20+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207565352532606' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js2' , '-0' , '用戶調用' , 1 , '2021-12-07 15:31:20' , 0) [ RunTime:0.000402s ]
+sql
+[2021-12-07T15:32:18+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:32:18+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001345s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:32:18+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000842s ]
+sql
+[2021-12-07T15:32:18+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000327s ]
+sql
+[2021-12-07T15:32:18+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:32:18+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002323s ]
+sql
+[2021-12-07T15:32:18+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000451s ]
+sql
+[2021-12-07T15:32:18+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000371s ]
+sql
+[2021-12-07T15:32:18+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207509856972804' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:32:18' , 0) [ RunTime:0.000409s ]
+sql
+[2021-12-07T15:33:58+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:33:58+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001496s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:33:58+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000745s ]
+sql
+[2021-12-07T15:33:58+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000316s ]
+sql
+[2021-12-07T15:33:58+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:33:58+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002277s ]
+sql
+[2021-12-07T15:33:58+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000430s ]
+sql
+[2021-12-07T15:33:58+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000375s ]
+sql
+[2021-12-07T15:33:58+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207545552103060' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:33:58' , 0) [ RunTime:0.000404s ]
+sql
+[2021-12-07T15:34:29+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:34:29+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001541s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:34:29+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000776s ]
+sql
+[2021-12-07T15:34:29+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000313s ]
+sql
+[2021-12-07T15:34:29+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:34:29+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002297s ]
+sql
+[2021-12-07T15:34:29+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000438s ]
+sql
+[2021-12-07T15:34:29+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000372s ]
+sql
+[2021-12-07T15:34:29+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207531005059493' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:34:29' , 0) [ RunTime:0.000384s ]
+sql
+[2021-12-07T15:35:56+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:35:56+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001349s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:35:56+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000744s ]
+sql
+[2021-12-07T15:35:56+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000308s ]
+sql
+[2021-12-07T15:35:56+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:35:56+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002292s ]
+sql
+[2021-12-07T15:35:56+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000452s ]
+sql
+[2021-12-07T15:35:56+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000364s ]
+sql
+[2021-12-07T15:35:56+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207995257485859' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:35:56' , 0) [ RunTime:0.000391s ]
+sql
+[2021-12-07T15:36:12+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:36:12+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001241s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:36:12+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000737s ]
+sql
+[2021-12-07T15:36:12+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000266s ]
+sql
+[2021-12-07T15:36:12+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:36:12+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000611s ]
+sql
+[2021-12-07T15:36:12+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000371s ]
+sql
+[2021-12-07T15:36:12+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000302s ]
+sql
+[2021-12-07T15:36:12+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207995152569979' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:36:12' , 0) [ RunTime:0.000355s ]
+sql
+[2021-12-07T15:36:29+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:36:29+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001403s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:36:29+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000789s ]
+sql
+[2021-12-07T15:36:29+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000308s ]
+sql
+[2021-12-07T15:36:29+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:36:29+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002233s ]
+sql
+[2021-12-07T15:36:29+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000425s ]
+sql
+[2021-12-07T15:36:29+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000303s ]
+sql
+[2021-12-07T15:36:29+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207100495248627' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:36:29' , 0) [ RunTime:0.000324s ]
+sql
+[2021-12-07T15:36:29+08:00][ info ] ---------Payment::RefundProcess 开始处理 ------------
+info
+[2021-12-07T15:36:29+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '420211207100495248627' LIMIT 1 [ RunTime:0.000464s ]
+sql
+[2021-12-07T15:36:29+08:00][ error ] 支付订单处理错误Undefined index: type
+error
+[2021-12-07T15:37:34+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:37:34+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001392s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:37:34+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000848s ]
+sql
+[2021-12-07T15:37:34+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000329s ]
+sql
+[2021-12-07T15:37:34+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:37:34+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002357s ]
+sql
+[2021-12-07T15:37:34+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000363s ]
+sql
+[2021-12-07T15:37:34+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000316s ]
+sql
+[2021-12-07T15:37:34+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207101565352212' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:37:34' , 0) [ RunTime:0.000302s ]
+sql
+[2021-12-07T15:37:34+08:00][ info ] ---------Payment::RefundProcess 开始处理 ------------
+info
+[2021-12-07T15:37:34+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '420211207101565352212' LIMIT 1 [ RunTime:0.000409s ]
+sql
+[2021-12-07T15:38:34+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:38:34+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001497s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:38:34+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000922s ]
+sql
+[2021-12-07T15:38:34+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000324s ]
+sql
+[2021-12-07T15:38:34+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:38:34+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.002212s ]
+sql
+[2021-12-07T15:38:34+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000427s ]
+sql
+[2021-12-07T15:38:34+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000397s ]
+sql
+[2021-12-07T15:38:34+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207975354495907' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:38:34' , 0) [ RunTime:0.000401s ]
+sql
+[2021-12-07T15:38:34+08:00][ info ] ---------Payment::RefundProcess 开始处理 ------------
+info
+[2021-12-07T15:38:34+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '420211207975354495907' LIMIT 1 [ RunTime:0.000541s ]
+sql
+[2021-12-07T15:39:45+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:39:45+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001354s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:39:45+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000846s ]
+sql
+[2021-12-07T15:39:45+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000330s ]
+sql
+[2021-12-07T15:39:45+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:39:45+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000754s ]
+sql
+[2021-12-07T15:39:45+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000438s ]
+sql
+[2021-12-07T15:39:45+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000371s ]
+sql
+[2021-12-07T15:39:45+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207495198103019' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:39:45' , 0) [ RunTime:0.000405s ]
+sql
+[2021-12-07T15:39:45+08:00][ info ] ---------Payment::RefundProcess 开始处理 ------------
+info
+[2021-12-07T15:39:45+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '420211207495198103019' LIMIT 1 [ RunTime:0.000409s ]
+sql
+[2021-12-07T15:40:04+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:40:04+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001379s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:40:04+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000730s ]
+sql
+[2021-12-07T15:40:04+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000308s ]
+sql
+[2021-12-07T15:40:04+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:40:05+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000729s ]
+sql
+[2021-12-07T15:40:05+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000470s ]
+sql
+[2021-12-07T15:40:05+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000340s ]
+sql
+[2021-12-07T15:40:05+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207534848102401' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:40:05' , 0) [ RunTime:0.000357s ]
+sql
+[2021-12-07T15:40:05+08:00][ info ] ---------Payment::RefundProcess 开始处理 ------------
+info
+[2021-12-07T15:40:05+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '420211207534848102401' LIMIT 1 [ RunTime:0.000570s ]
+sql
+[2021-12-07T15:40:05+08:00][ error ] 支付订单处理错误Undefined index: type
+error
+[2021-12-07T15:41:36+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:41:36+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001512s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:41:36+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000784s ]
+sql
+[2021-12-07T15:41:36+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000327s ]
+sql
+[2021-12-07T15:41:36+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:41:36+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000660s ]
+sql
+[2021-12-07T15:41:36+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000428s ]
+sql
+[2021-12-07T15:41:36+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000389s ]
+sql
+[2021-12-07T15:41:36+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207484910018729' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:41:36' , 0) [ RunTime:0.000402s ]
+sql
+[2021-12-07T15:41:36+08:00][ info ] ---------Payment::RefundProcess 开始处理 ------------
+info
+[2021-12-07T15:41:36+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '420211207484910018729' LIMIT 1 [ RunTime:0.001581s ]
+sql
+[2021-12-07T15:41:36+08:00][ error ] 支付订单处理错误Undefined index: type
+error
+[2021-12-07T15:41:57+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:41:57+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001355s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:41:57+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000659s ]
+sql
+[2021-12-07T15:41:57+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000248s ]
+sql
+[2021-12-07T15:41:57+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:41:57+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000600s ]
+sql
+[2021-12-07T15:41:57+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000366s ]
+sql
+[2021-12-07T15:41:57+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000280s ]
+sql
+[2021-12-07T15:41:57+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207534899561205' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:41:57' , 0) [ RunTime:0.000357s ]
+sql
+[2021-12-07T15:41:57+08:00][ info ] ---------Payment::RefundProcess 开始处理 ------------
+info
+[2021-12-07T15:41:57+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '420211207534899561205' LIMIT 1 [ RunTime:0.000427s ]
+sql
+[2021-12-07T15:41:57+08:00][ error ] 支付订单处理错误Undefined index: type
+error
+[2021-12-07T15:42:12+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:42:12+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001382s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:42:12+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000597s ]
+sql
+[2021-12-07T15:42:12+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000253s ]
+sql
+[2021-12-07T15:42:12+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:42:12+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000702s ]
+sql
+[2021-12-07T15:42:12+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000383s ]
+sql
+[2021-12-07T15:42:12+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000279s ]
+sql
+[2021-12-07T15:42:12+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207525498501397' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:42:12' , 0) [ RunTime:0.000326s ]
+sql
+[2021-12-07T15:42:12+08:00][ info ] ---------Payment::RefundProcess 开始处理 ------------
+info
+[2021-12-07T15:42:12+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '420211207525498501397' LIMIT 1 [ RunTime:0.000609s ]
+sql
+[2021-12-07T15:42:12+08:00][ error ] 支付订单处理错误Undefined index: type
+error
+[2021-12-07T15:42:25+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:42:25+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001289s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:42:25+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000776s ]
+sql
+[2021-12-07T15:42:25+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000309s ]
+sql
+[2021-12-07T15:42:25+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:42:25+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000698s ]
+sql
+[2021-12-07T15:42:25+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000415s ]
+sql
+[2021-12-07T15:42:25+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000391s ]
+sql
+[2021-12-07T15:42:25+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207491014854470' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:42:25' , 0) [ RunTime:0.000316s ]
+sql
+[2021-12-07T15:42:25+08:00][ info ] ---------Payment::RefundProcess 开始处理 ------------
+info
+[2021-12-07T15:42:25+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '420211207491014854470' LIMIT 1 [ RunTime:0.001520s ]
+sql
+[2021-12-07T15:42:25+08:00][ error ] 支付订单处理错误Undefined index: type
+error
+[2021-12-07T15:42:48+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:42:48+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001334s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:42:48+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000648s ]
+sql
+[2021-12-07T15:42:48+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000308s ]
+sql
+[2021-12-07T15:42:48+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:42:48+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000718s ]
+sql
+[2021-12-07T15:42:48+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000446s ]
+sql
+[2021-12-07T15:42:48+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000374s ]
+sql
+[2021-12-07T15:42:48+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207565497973553' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:42:48' , 0) [ RunTime:0.000394s ]
+sql
+[2021-12-07T15:42:48+08:00][ info ] ---------Payment::RefundProcess 开始处理 ------------
+info
+[2021-12-07T15:42:48+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '420211207565497973553' LIMIT 1 [ RunTime:0.000468s ]
+sql
+[2021-12-07T15:42:48+08:00][ error ] 支付订单处理错误Undefined index: type
+error
+[2021-12-07T15:43:01+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:43:01+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001432s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:43:01+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000754s ]
+sql
+[2021-12-07T15:43:01+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000330s ]
+sql
+[2021-12-07T15:43:08+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:43:08+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001371s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:43:08+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000651s ]
+sql
+[2021-12-07T15:43:08+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000244s ]
+sql
+[2021-12-07T15:43:08+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:43:08+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000710s ]
+sql
+[2021-12-07T15:43:08+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000465s ]
+sql
+[2021-12-07T15:43:08+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000373s ]
+sql
+[2021-12-07T15:43:08+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207991001004069' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:43:08' , 0) [ RunTime:0.000395s ]
+sql
+[2021-12-07T15:43:08+08:00][ info ] ---------Payment::RefundProcess 开始处理 ------------
+info
+[2021-12-07T15:43:08+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '420211207991001004069' LIMIT 1 [ RunTime:0.000601s ]
+sql
+[2021-12-07T15:43:08+08:00][ error ] 支付订单处理错误Undefined index: type
+error
+[2021-12-07T15:43:35+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:43:35+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001325s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:43:35+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000694s ]
+sql
+[2021-12-07T15:43:35+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000271s ]
+sql
+[2021-12-07T15:43:35+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:43:35+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000652s ]
+sql
+[2021-12-07T15:43:35+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000420s ]
+sql
+[2021-12-07T15:43:35+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000399s ]
+sql
+[2021-12-07T15:43:35+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207554854978175' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:43:35' , 0) [ RunTime:0.000409s ]
+sql
+[2021-12-07T15:43:47+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:43:47+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001355s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:43:47+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000753s ]
+sql
+[2021-12-07T15:43:47+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000319s ]
+sql
+[2021-12-07T15:43:47+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:43:47+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000730s ]
+sql
+[2021-12-07T15:43:47+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000422s ]
+sql
+[2021-12-07T15:43:47+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000386s ]
+sql
+[2021-12-07T15:43:47+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207515050971151' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:43:47' , 0) [ RunTime:0.000393s ]
+sql
+[2021-12-07T15:43:54+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:43:54+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001374s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:43:54+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000614s ]
+sql
+[2021-12-07T15:43:54+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000314s ]
+sql
+[2021-12-07T15:43:54+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:43:54+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000711s ]
+sql
+[2021-12-07T15:43:54+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000435s ]
+sql
+[2021-12-07T15:43:54+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000364s ]
+sql
+[2021-12-07T15:43:54+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207975750515716' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:43:54' , 0) [ RunTime:0.000383s ]
+sql
+[2021-12-07T15:46:26+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:46:26+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001465s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:46:26+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000917s ]
+sql
+[2021-12-07T15:46:26+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000330s ]
+sql
+[2021-12-07T15:46:26+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:46:26+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000737s ]
+sql
+[2021-12-07T15:46:26+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000434s ]
+sql
+[2021-12-07T15:46:26+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000402s ]
+sql
+[2021-12-07T15:46:26+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207505055486247' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:46:26' , 0) [ RunTime:0.000411s ]
+sql
+[2021-12-07T15:47:55+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:47:55+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001438s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:47:55+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000623s ]
+sql
+[2021-12-07T15:47:55+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000309s ]
+sql
+[2021-12-07T15:47:55+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:47:55+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000692s ]
+sql
+[2021-12-07T15:47:55+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000421s ]
+sql
+[2021-12-07T15:47:55+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000367s ]
+sql
+[2021-12-07T15:47:55+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207985449998993' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:47:55' , 0) [ RunTime:0.000386s ]
+sql
+[2021-12-07T15:47:55+08:00][ info ] ---------Payment::RefundProcess 开始处理 ------------
+info
+[2021-12-07T15:47:55+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '420211207985449998993' LIMIT 1 [ RunTime:0.001590s ]
+sql
+[2021-12-07T15:48:51+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:48:51+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001302s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:48:51+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000547s ]
+sql
+[2021-12-07T15:48:51+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000264s ]
+sql
+[2021-12-07T15:48:51+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:48:51+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000599s ]
+sql
+[2021-12-07T15:48:51+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000391s ]
+sql
+[2021-12-07T15:48:51+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000305s ]
+sql
+[2021-12-07T15:48:51+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207515597505960' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:48:51' , 0) [ RunTime:0.000338s ]
+sql
+[2021-12-07T15:48:51+08:00][ info ] ---------Payment::RefundProcess 开始处理 ------------
+info
+[2021-12-07T15:48:51+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '420211207515597505960' LIMIT 1 [ RunTime:0.001518s ]
+sql
+[2021-12-07T15:48:51+08:00][ error ] 支付订单处理错误Undefined index: type
+error
+[2021-12-07T15:49:17+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:49:17+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001332s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:49:17+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000599s ]
+sql
+[2021-12-07T15:49:17+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000292s ]
+sql
+[2021-12-07T15:49:17+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:49:17+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000711s ]
+sql
+[2021-12-07T15:49:17+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000447s ]
+sql
+[2021-12-07T15:49:17+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000355s ]
+sql
+[2021-12-07T15:49:17+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207100495653186' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:49:17' , 0) [ RunTime:0.000401s ]
+sql
+[2021-12-07T15:49:17+08:00][ info ] ---------Payment::RefundProcess 开始处理 ------------
+info
+[2021-12-07T15:49:17+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '420211207100495653186' LIMIT 1 [ RunTime:0.001861s ]
+sql
+[2021-12-07T15:49:17+08:00][ error ] 支付订单处理错误Undefined index: type
+error
+[2021-12-07T15:50:23+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:50:23+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001384s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:50:23+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000771s ]
+sql
+[2021-12-07T15:50:23+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000276s ]
+sql
+[2021-12-07T15:50:23+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:50:23+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000697s ]
+sql
+[2021-12-07T15:50:23+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000423s ]
+sql
+[2021-12-07T15:50:23+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000381s ]
+sql
+[2021-12-07T15:50:23+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207102994957393' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:50:23' , 0) [ RunTime:0.000471s ]
+sql
+[2021-12-07T15:50:23+08:00][ info ] ---------Payment::RefundProcess 开始处理 ------------
+info
+[2021-12-07T15:50:23+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '420211207102994957393' LIMIT 1 [ RunTime:0.000528s ]
+sql
+[2021-12-07T15:50:23+08:00][ error ] 支付订单处理错误Undefined index: type
+error
+[2021-12-07T15:50:52+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:50:52+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001390s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:50:52+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000776s ]
+sql
+[2021-12-07T15:50:52+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000327s ]
+sql
+[2021-12-07T15:50:52+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:50:52+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000710s ]
+sql
+[2021-12-07T15:50:52+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000431s ]
+sql
+[2021-12-07T15:50:52+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000373s ]
+sql
+[2021-12-07T15:50:52+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207995610149624' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:50:52' , 0) [ RunTime:0.000373s ]
+sql
+[2021-12-07T15:50:52+08:00][ info ] ---------Payment::RefundProcess 开始处理 ------------
+info
+[2021-12-07T15:50:52+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '420211207995610149624' LIMIT 1 [ RunTime:0.000469s ]
+sql
+[2021-12-07T15:50:52+08:00][ error ] 支付订单处理错误Undefined index: type
+error
+[2021-12-07T15:51:02+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:51:02+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001326s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:51:02+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000600s ]
+sql
+[2021-12-07T15:51:02+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000252s ]
+sql
+[2021-12-07T15:51:02+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:54:00+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:54:00+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001541s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:54:00+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000883s ]
+sql
+[2021-12-07T15:54:00+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000348s ]
+sql
+[2021-12-07T15:54:00+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:54:00+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000697s ]
+sql
+[2021-12-07T15:54:00+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000461s ]
+sql
+[2021-12-07T15:54:00+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000367s ]
+sql
+[2021-12-07T15:54:00+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207565449539582' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:54:00' , 0) [ RunTime:0.000406s ]
+sql
+[2021-12-07T15:54:00+08:00][ info ] ---------Payment::RefundProcess 开始处理 ------------
+info
+[2021-12-07T15:54:00+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '420211207565449539582' LIMIT 1 [ RunTime:0.000476s ]
+sql
+[2021-12-07T15:54:00+08:00][ error ] 支付订单处理错误Undefined index: type
+error
+[2021-12-07T15:54:33+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:54:33+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001424s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:54:33+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000721s ]
+sql
+[2021-12-07T15:54:33+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000286s ]
+sql
+[2021-12-07T15:54:33+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:54:33+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000650s ]
+sql
+[2021-12-07T15:54:33+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000392s ]
+sql
+[2021-12-07T15:54:33+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000352s ]
+sql
+[2021-12-07T15:54:33+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207575554498628' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:54:33' , 0) [ RunTime:0.000361s ]
+sql
+[2021-12-07T15:54:33+08:00][ info ] ---------Payment::RefundProcess 开始处理 ------------
+info
+[2021-12-07T15:54:33+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '420211207575554498628' LIMIT 1 [ RunTime:0.000533s ]
+sql
+[2021-12-07T15:54:33+08:00][ error ] 支付订单处理错误Undefined index: type
+error
+[2021-12-07T15:54:53+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:54:53+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001290s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:54:53+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000768s ]
+sql
+[2021-12-07T15:54:53+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000313s ]
+sql
+[2021-12-07T15:54:53+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:54:53+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000710s ]
+sql
+[2021-12-07T15:54:53+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000441s ]
+sql
+[2021-12-07T15:54:53+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000366s ]
+sql
+[2021-12-07T15:54:53+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207100574953199' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:54:53' , 0) [ RunTime:0.000391s ]
+sql
+[2021-12-07T15:54:53+08:00][ info ] ---------Payment::RefundProcess 开始处理 ------------
+info
+[2021-12-07T15:54:53+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '420211207100574953199' LIMIT 1 [ RunTime:0.000472s ]
+sql
+[2021-12-07T15:54:53+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '20211206995310216589' LIMIT 1 [ RunTime:0.000443s ]
+sql
+[2021-12-07T15:54:53+08:00][ error ] 支付订单处理错误Undefined index: type
+error
+[2021-12-07T15:55:17+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:55:17+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001324s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:55:17+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000639s ]
+sql
+[2021-12-07T15:55:17+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000306s ]
+sql
+[2021-12-07T15:55:17+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:55:17+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000695s ]
+sql
+[2021-12-07T15:55:17+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000407s ]
+sql
+[2021-12-07T15:55:17+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000406s ]
+sql
+[2021-12-07T15:55:17+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207534898539616' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:55:17' , 0) [ RunTime:0.000376s ]
+sql
+[2021-12-07T15:55:17+08:00][ info ] ---------Payment::RefundProcess 开始处理 ------------
+info
+[2021-12-07T15:55:17+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '420211207534898539616' LIMIT 1 [ RunTime:0.000469s ]
+sql
+[2021-12-07T15:55:17+08:00][ error ] 支付订单处理错误Undefined index: type
+error
+[2021-12-07T15:56:16+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:56:16+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001334s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:56:16+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000623s ]
+sql
+[2021-12-07T15:56:16+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000262s ]
+sql
+[2021-12-07T15:56:16+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:56:16+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000586s ]
+sql
+[2021-12-07T15:56:16+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000359s ]
+sql
+[2021-12-07T15:56:16+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000306s ]
+sql
+[2021-12-07T15:56:16+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207485051569966' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:56:16' , 0) [ RunTime:0.000372s ]
+sql
+[2021-12-07T15:56:16+08:00][ info ] ---------Payment::RefundProcess 开始处理 ------------
+info
+[2021-12-07T15:56:16+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '420211207485051569966' LIMIT 1 [ RunTime:0.000491s ]
+sql
+[2021-12-07T15:56:16+08:00][ error ] 支付订单处理错误Undefined index: type
+error
+[2021-12-07T15:56:42+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:56:42+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001360s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:56:42+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000785s ]
+sql
+[2021-12-07T15:56:42+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000318s ]
+sql
+[2021-12-07T15:56:42+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:56:42+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000708s ]
+sql
+[2021-12-07T15:56:42+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000431s ]
+sql
+[2021-12-07T15:56:42+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000363s ]
+sql
+[2021-12-07T15:56:42+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207971015694316' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:56:42' , 0) [ RunTime:0.000404s ]
+sql
+[2021-12-07T15:56:43+08:00][ info ] ---------Payment::RefundProcess 开始处理 ------------
+info
+[2021-12-07T15:56:43+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '420211207971015694316' LIMIT 1 [ RunTime:0.001518s ]
+sql
+[2021-12-07T15:56:43+08:00][ error ] 支付订单处理错误Undefined index: type
+error
+[2021-12-07T15:58:20+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:58:20+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001470s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:58:20+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000744s ]
+sql
+[2021-12-07T15:58:20+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000320s ]
+sql
+[2021-12-07T15:58:20+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:58:20+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000710s ]
+sql
+[2021-12-07T15:58:20+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000464s ]
+sql
+[2021-12-07T15:58:20+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000364s ]
+sql
+[2021-12-07T15:58:20+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207995798105361' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:58:20' , 0) [ RunTime:0.000399s ]
+sql
+[2021-12-07T15:58:20+08:00][ info ] ---------Payment::RefundProcess 开始处理 ------------
+info
+[2021-12-07T15:58:20+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '420211207995798105361' LIMIT 1 [ RunTime:0.000460s ]
+sql
+[2021-12-07T15:58:20+08:00][ error ] 支付订单处理错误Undefined index: type
+error
+[2021-12-07T15:58:54+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:58:54+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001535s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:58:54+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000825s ]
+sql
+[2021-12-07T15:58:54+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000327s ]
+sql
+[2021-12-07T15:58:54+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:58:54+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000746s ]
+sql
+[2021-12-07T15:58:54+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000453s ]
+sql
+[2021-12-07T15:58:54+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000618s ]
+sql
+[2021-12-07T15:58:54+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207101521025402' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-0' , '用戶調用' , 1 , '2021-12-07 15:58:54' , 0) [ RunTime:0.000407s ]
+sql
+[2021-12-07T15:58:54+08:00][ info ] ---------Payment::RefundProcess 开始处理 ------------
+info
+[2021-12-07T15:58:54+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `id` = '420211207101521025402' LIMIT 1 [ RunTime:0.000470s ]
+sql
+[2021-12-07T15:59:46+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T15:59:46+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001466s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T15:59:46+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000662s ]
+sql
+[2021-12-07T15:59:46+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000260s ]
+sql
+[2021-12-07T15:59:46+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T15:59:46+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000595s ]
+sql
+[2021-12-07T15:59:46+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000370s ]
+sql
+[2021-12-07T15:59:46+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000280s ]
+sql
+[2021-12-07T15:59:46+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207505650105410' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-1' , '用戶調用' , 1 , '2021-12-07 15:59:46' , 0) [ RunTime:0.000336s ]
+sql
+[2021-12-07T16:02:15+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T16:02:15+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001584s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T16:02:15+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000774s ]
+sql
+[2021-12-07T16:02:15+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000316s ]
+sql
+[2021-12-07T16:02:15+08:00][ info ] --------开始发起退款------------
+info
+[2021-12-07T16:02:15+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000699s ]
+sql
+[2021-12-07T16:02:15+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000415s ]
+sql
+[2021-12-07T16:02:15+08:00][ sql ] [ SQL ] SELECT SUM(`amount`) AS tp_sum FROM `pay_order` WHERE  `original_id` = '20211206995310216589'  AND `is_refund` = 1  AND `state` IN (2,1) [ RunTime:0.000388s ]
+sql
+[2021-12-07T16:02:15+08:00][ sql ] [ SQL ] INSERT INTO `pay_order` (`id` , `original_id` , `original_amount` , `business_name` , `business_no` , `pay_channel` , `amount` , `title` , `is_refund` , `apply_time` , `state`) VALUES ('420211207555551526502' , '20211206995310216589' , '11.00' , 'my_order' , '10001' , 'wxpay_js' , '-1' , '用戶調用' , 1 , '2021-12-07 16:02:15' , 0) [ RunTime:0.000399s ]
+sql
+[2021-12-07T16:04:40+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T16:04:40+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001410s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T16:04:40+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000758s ]
+sql
+[2021-12-07T16:04:40+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000332s ]
+sql
+[2021-12-07T16:04:40+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000693s ]
+sql
+[2021-12-07T16:04:40+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000433s ]
+sql
+[2021-12-07T16:05:24+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T16:05:24+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001557s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T16:05:24+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000853s ]
+sql
+[2021-12-07T16:05:24+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000316s ]
+sql
+[2021-12-07T16:05:24+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000701s ]
+sql
+[2021-12-07T16:05:24+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000445s ]
+sql
+[2021-12-07T16:06:23+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T16:06:23+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001378s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T16:06:23+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000793s ]
+sql
+[2021-12-07T16:06:23+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000317s ]
+sql
+[2021-12-07T16:06:23+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000601s ]
+sql
+[2021-12-07T16:06:23+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000367s ]
+sql
+[2021-12-07T16:07:03+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T16:07:03+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001445s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T16:07:03+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000776s ]
+sql
+[2021-12-07T16:07:03+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000317s ]
+sql
+[2021-12-07T16:07:03+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000698s ]
+sql
+[2021-12-07T16:07:03+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000326s ]
+sql
+[2021-12-07T16:17:17+08:00][ info ] [ DB ] INIT mysql
+info
+[2021-12-07T16:17:17+08:00][ sql ] [ DB ] CONNECT:[ UseTime:0.001545s ] mysql:host=127.0.0.1;port=3306;dbname=testdb;charset=utf8mb4
+sql
+[2021-12-07T16:17:17+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `my_order` [ RunTime:0.000964s ]
+sql
+[2021-12-07T16:17:17+08:00][ sql ] [ SQL ] SELECT * FROM `my_order` WHERE  `order_no` = '10001' LIMIT 1 [ RunTime:0.000346s ]
+sql
+[2021-12-07T16:17:17+08:00][ sql ] [ SQL ] SHOW COLUMNS FROM `pay_order` [ RunTime:0.000856s ]
+sql
+[2021-12-07T16:17:17+08:00][ sql ] [ SQL ] SELECT * FROM `pay_order` WHERE  `business_no` = '10001'  AND `business_name` = 'my_order'  AND `is_refund` =  LIMIT 1 [ RunTime:0.000312s ]
+sql

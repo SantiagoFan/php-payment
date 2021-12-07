@@ -2,8 +2,6 @@
 
 namespace tests\model;
 
-use app\payment\common\PaymentService;
-use JoinPhpPayment\core\PayClient;
 use JoinPhpPayment\model\BasePayableOrder;
 use JoinPhpPayment\model\Model_PayOrder;
 
@@ -17,27 +15,24 @@ class MyOrder extends BasePayableOrder
      */
     public function CreatePayOrder():Model_PayOrder
     {
-        $pay_order = $this->newPayOrder(
-            $this['name'],
-            $this['price'],
-            $this['order_no']
-        );
+        $pay_order = new Model_PayOrder();
+        $pay_order['title']= $this['name'];
+        $pay_order['amount']=  $this['price'];
+        $pay_order['business_no']=  $this['order_no'];
+        $pay_order['business_name']= $this->GetBusinessName();
         return $pay_order;
     }
 
-    public static function PaySuccess(Model_PayOrder $pay_order)
+    public function PaySuccess(Model_PayOrder $pay_order)
     {
-        // TODO: Implement PaySuccess() method.
+        $this['state'] = '1';
+        $this->save();
     }
 
-    public function RefundOrder(float $amount, string $reason)
-    {
-        // TODO: Implement Refund() method.
-    }
 
-    public static function RefundedSuccess(Model_PayOrder $pay_refund_order)
+
+    public function RefundedSuccess(Model_PayOrder $pay_refund_order)
     {
         // TODO: Implement RefundedSuccess() method.
-        parent::RefundedSuccess($pay_refund_order);
     }
 }

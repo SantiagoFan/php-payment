@@ -1,10 +1,11 @@
 <?php
 
-namespace app\payment\channel;
+namespace JoinPhpPayment\channel;
 
 use Alipay\EasySDK\Kernel\Factory;
 
 use app\payment\model\Model_PayOrder;
+use JoinPhpPayment\Core\IChannelClient;
 use think\Exception;
 use think\facade\Config;
 
@@ -20,7 +21,7 @@ use think\facade\Log;// 支付成功出口
  * Class Payment
  * @package app\extend
  */
-class AlipayClient
+class AlipayClient implements IChannelClient
 {
     // +----------------------------------------------------------------------
     // | 支付配置
@@ -67,14 +68,10 @@ class AlipayClient
     /**
      * 下预付单
      * @param $pay_channel  string      支付渠道 WxPay,AliPay
-     * @param $title        string      订单标题
-     * @param $out_trade_no string      业务订单号 商户订单号，商户网站订单系统中唯一订单号，必填
-     * @param $total_fee    number      支付金额支付金额
-     * @param string $openid
-     * @param string $body
+     * @param $pay_order        Model_PayOrder      订单标题
+     * @param $extend array      业务订单号 商户订单号，商户网站订单系统中唯一订单号，必填
      */
-    public static function PrepayOrder($title, $out_trade_no, $total_fee, $openid = '', $body = ''
-        ,$profit_sharing ='N',$sub_merchant=null)
+    public static function PrepayOrder(\JoinPhpPayment\model\Model_PayOrder $pay_order, array $extend)
     {
         // 支付宝支付逻辑
         $config = self::getAlipayConfig();
@@ -95,8 +92,8 @@ class AlipayClient
         $result = $app->common()
             ->optional('extend_params',$extend_params)
             ->create(
-            $title,
-            $out_trade_no,
+            $pay_order,
+            $extend,
             $total_fee,
             $openid);
         return $result;

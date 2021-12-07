@@ -3,6 +3,8 @@
 
 namespace JoinPhpPayment\Core;
 
+use JoinPhpPayment\model\Model_PayOrder;
+
 /**
  * 支付渠道 实现接口
  *
@@ -15,18 +17,23 @@ Interface IChannelClient
 {
     /**
      * 通过支付获取支付参数
-     * @param $pay_order 支付订单
-     * @param $extend   拓展参数
+     * @param Model_PayOrder $pay_order 支付订单
+     * @param array $options   拓展参数
      */
-    public function PrepayOrder($pay_order,$extend);
+    public function PayOrder(Model_PayOrder $pay_order, array $options);
 
     /**
      * 支付订单退款
+     * @param Model_PayOrder $pay_refund_order
+     * @return array success 成功 error 失败 pending 异步
+     */
+    public function RefundOrder(Model_PayOrder $pay_refund_order): array;
+
+    /**
+     * 查询订单
      * @param $pay_order
      * @return mixed
      */
-    public function RefundOrder($pay_order);
-
-    public function QueryOrder();
+    public function QueryOrder($pay_order);
 
 }
