@@ -7,7 +7,7 @@ use JoinPhpPayment\channel\WxpayClient;
 use JoinPhpPayment\model\Model_PayOrder;
 use think\Controller;
 
-class BaseNotifyController extends Controller
+abstract class BaseNotifyController extends Controller
 {
     /**
      * 微信支付回调
@@ -17,7 +17,6 @@ class BaseNotifyController extends Controller
         $app = new WxpayClient();
         $app->PayNotify($this->PaySuccess);
     }
-
     /**
      *
      * @throws Exception
@@ -28,18 +27,10 @@ class BaseNotifyController extends Controller
     }
 
     /**
-     * 支付成功后调用
+     * dsadad
      * @param Model_PayOrder $pay_order
+     * @return mixed
      */
-    public function PaySuccess(Model_PayOrder $pay_order){
-        // 业务系统可重写次方法
-    }
-
-    /**
-     * 退款成功回调
-     * @param Model_PayOrder $pay_refund_order
-     */
-    public function RefundSuccess(Model_PayOrder $pay_refund_order){
-        // 业务系统可重写次方法
-    }
+    public abstract function PaySuccess(Model_PayOrder $pay_order);
+    public abstract function RefundSuccess(Model_PayOrder $pay_refund_order);
 }

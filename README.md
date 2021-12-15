@@ -69,6 +69,21 @@ class PaymentConfig implements IPaymentConfig{
 }
 ```
 ### 4.集成异步通知
+```php
+class NotifyController extends BaseNotifyController
+{
+    
+    public function PaySuccess(Model_PayOrder $pay_order)
+    {
+        // 支持成功处理完成后回调-无特殊业务写空方法即可
+    }
+
+    public function RefundSuccess(Model_PayOrder $pay_refund_order)
+    {
+        // 退款成功处理完成后回调-无特殊业务写空方法即可
+    }
+}
+```
 
 ### 5.编写业务类
 编写业务类需要实现 IPayableOrder 或者直接继承 BasePayableOrder 基类
