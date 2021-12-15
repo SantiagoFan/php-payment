@@ -68,7 +68,8 @@ class PaymentConfig implements IPaymentConfig{
     }
 }
 ```
-### 4.集成异步通知
+### 4.集成异步通知 Controller
+此通知入口对应地址需要和配置类的通知地址一致
 ```php
 class NotifyController extends BaseNotifyController
 {
@@ -85,13 +86,29 @@ class NotifyController extends BaseNotifyController
 }
 ```
 
-### 5.编写业务类
-编写业务类需要实现 IPayableOrder 或者直接继承 BasePayableOrder 基类
+### 5.编写业务类 Model
+编写业务类需要实现 IPayableOrder 或者直接继承 BasePayableOrder 基类  
+根据不同业务类型可创建不同的model
 ```php
 class MyOrder extends BasePayableOrder
 {
     // 业务名称
+    protected $pk ='order_no';
     protected $business_name = 'my_order';
+    /**
+     * 因为字段不一样 覆盖父级方法
+    * 如果业务类包含：title、amount、order_no 则无需编写次方法
+     * @return Model_PayOrder
+     */
+    public function CreatePayOrder():Model_PayOrder
+    {
+//        $pay_order = new Model_PayOrder();
+//        $pay_order['title']= $this['name'];
+//        $pay_order['amount']=  $this['price'];
+//        $pay_order['business_no']=  $this['order_no'];
+//        $pay_order['business_name']= $this->GetBusinessName();
+//        return $pay_order;
+    }
     public function PaySuccess(Model_PayOrder $pay_order)
     {
         // 支付成功后 业务单 后续逻辑
@@ -101,4 +118,15 @@ class MyOrder extends BasePayableOrder
         // 退款成功后 业务单 后续逻辑
     }
 }
+```
+### 6.编写业务调用支付
+```php
+        // 查询或者创建订单
+        // $bus_order =  new MyOrder();
+        $bus_order = MyOrder::get('10001');
+        //支付客户端类型
+        $client = PayClient::WEIXIN_QRCODE; //小程序参数
+        $params = [];
+        // 获得支付参数
+        $res = $bus_order->PayOrder($client, $params);
 ```
