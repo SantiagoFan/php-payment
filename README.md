@@ -6,6 +6,9 @@
 ```
 composer require join/php-payment
 ```
+包地址
+https://packagist.org/packages/join/php-payment
+
 ### require 依赖
 
 php：>=7.2.0
