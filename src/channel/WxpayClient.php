@@ -3,7 +3,9 @@
 namespace JoinPhpPayment\channel;
 
 use EasyWeChat\Factory;
+use EasyWeChat\Payment\Application;
 use Exception;
+use Closure;
 use GuzzleHttp\Exception\GuzzleException;
 use JoinPhpPayment\core\PayChannel;
 use JoinPhpPayment\core\PayFactory;
@@ -22,7 +24,7 @@ class WxpayClient implements IChannelClient
 {
     /**
      * 支付操作类
-     * @var \EasyWeChat\Payment\Application
+     * @var Application
      */
     private $app;
     /**
@@ -75,7 +77,8 @@ class WxpayClient implements IChannelClient
         }
         else{
             Log::error(json_encode($result));
-            throw new Exception("WxpayClient:下预付单错误".$result['err_code_des']);
+            $error_msg = "WxpayClient:下预付单错误".$result['return_msg'].($result['err_code_des']??'');
+            throw new Exception($error_msg);
         }
     }
 
@@ -83,8 +86,8 @@ class WxpayClient implements IChannelClient
      * 支付成功通知处理
      * @throws Exception
      */
-    public function PayNotify(){
-        $response = $this->app->handlePaidNotify(function($data, $fail) {
+    public function PayNotify(Closure $callback){
+        $response = $this->app->handlePaidNotify(function($data, $fail) use ($callback) {
             $pay_order_id =$data['out_trade_no'];//商户订单号
             $amount = $data['total_fee']/100; // 单位 分转元
             $channel_no = $data['transaction_id']; //微信支付订单号
@@ -109,7 +112,8 @@ class WxpayClient implements IChannelClient
                 // 用户是否支付成功
                 if ($data['result_code'] === 'SUCCESS') {
                     $pay_channel = $this->trade_type[$data['trade_type']];
-                    PayFactory::PaySuccess($pay_channel, $amount, $pay_order_id, $channel_no); //更新支付订单
+                    $pay_order = PayFactory::PaySuccess($pay_channel, $amount, $pay_order_id, $channel_no); //更新支付订单
+                    call_user_func($callback,$pay_order);
                 }
             } else {
                 return $fail('通信失败，请稍后再通知我');
@@ -119,10 +123,11 @@ class WxpayClient implements IChannelClient
     }
 
     /**
+     * 退款通知处理
      * @throws Exception
      */
-    public function RefundNotify(){
-        $response = $this->app->handleRefundedNotify(function ($message,$data,$fail) {
+    public function RefundNotify(Closure $callback){
+        $response = $this->app->handleRefundedNotify(function ($message,$data,$fail) use ($callback) {
             // 参数
             $pay_refund_id = $data['out_refund_no'];
             $pay_id = $data["out_trade_no"];
@@ -131,7 +136,8 @@ class WxpayClient implements IChannelClient
 
             if ($message['return_code'] === 'SUCCESS') { // return_code 表示通信状态，不代表支付状态
                 if ($data['refund_status'] === 'SUCCESS') {
-                    PayFactory::RefundSuccess($pay_refund_id,$refund_amount,$pay_id,$channel_refund_no); // 通知支付退款订单
+                    $pay_refund_order = PayFactory::RefundSuccess($pay_refund_id,$refund_amount,$pay_id,$channel_refund_no); // 通知支付退款订单
+                    call_user_func($callback,$pay_refund_order);
                 }
             } else {
                 return $fail('通信失败，请稍后再通知我');
@@ -173,7 +179,6 @@ class WxpayClient implements IChannelClient
         return $this->app->order->unify($params);
     }
 
-
     /**
      * @param Model_PayOrder $pay_refund_order
      */
@@ -199,6 +204,7 @@ class WxpayClient implements IChannelClient
             return [ "code"=>"error","message"=> $result['return_msg'] ];
         }
     }
+
     /**
      * 查询 支付平台订单信息
      * @param Model_PayOrder $pay_order

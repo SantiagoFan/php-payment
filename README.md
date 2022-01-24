@@ -37,6 +37,11 @@ vendor/join/php-payment/doc/model/model-[版本].sql
 ### 3.编写配置类（实现 IPaymentConfig 接口）
 ```php
 class PaymentConfig implements IPaymentConfig{
+    // 注入配置
+    public static function init(){
+        $config  = new self();
+        PayFactory::init($config);
+    }
     // 注入配置信息
     public function getPayConfig(string $type){
         if($type=='wxpay'){
@@ -68,23 +73,25 @@ class PaymentConfig implements IPaymentConfig{
     }
 }
 ```
+支付前注入配置
+```php
+PaymentConfig::init();
+```
 ### 4.集成异步通知 Controller
 此通知入口对应地址需要和配置类的通知地址一致
 ```php
 class NotifyController extends BaseNotifyController
 {
-    
-    public function PaySuccess(Model_PayOrder $pay_order)
+    public function __construct(App $app = null)
     {
-        // 支持成功处理完成后回调-无特殊业务写空方法即可
-    }
-
-    public function RefundSuccess(Model_PayOrder $pay_refund_order)
-    {
-        // 退款成功处理完成后回调-无特殊业务写空方法即可
+        parent::__construct($app);
+        PaymentConfig::init(); //如果全局钩子函数注入配置则不用写次函数
     }
 }
 ```
+如果需要全局处理 支付成功后或者退款后的业务，notify 类覆盖父类方法PaySuccess
+或者 RefundSuccess。  
+如果需要处理业务订单成功后的业务，请在相关业务model 里的PaySuccess方法处理
 
 ### 5.编写业务类 Model
 编写业务类需要实现 IPayableOrder 或者直接继承 BasePayableOrder 基类  

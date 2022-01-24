@@ -16,6 +16,11 @@ use JoinPhpPayment\model\Model_PayOrder;
 Interface IPaymentConfig
 {
     /**
+     * 注入配置到支付服务中
+     * @return mixed
+     */
+    public static function init();
+    /**
      * 工厂方法：根据业务类型获取 业务类
      * @param string $business_name
      * @return IPayableOrder

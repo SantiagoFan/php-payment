@@ -3,24 +3,88 @@
 namespace JoinPhpPayment\channel;
 
 use Alipay\EasySDK\Kernel\Factory;
+use Alipay\EasySDK\Kernel\Payment;
+use JoinPhpPayment\core\PayFactory;
+use JoinPhpPayment\model\Model_PayOrder;
 use think\Exception;
 use think\facade\Config;
-use think\facade\Log;// 支付成功出口
+use think\facade\Log;
+
+// 支付成功出口
 
 /**
- * 支付 （微信、支付宝）
- * 步骤一： pc端生成聚合支付二维码、移动版直接跳到聚合支付链接
- * 步骤二：根据不同客户端USER_AGENT，下预付单->展示调用不同支付业务的界面
- *
- *
- * Class Payment
- * @package app\extend
+ * Class AlipayClient
+ * @package JoinPhpPayment\channel
  */
 class AlipayClient implements IChannelClient
 {
+    /**
+     * @var Payment
+     */
+    private $app;
+    /**
+     * 配置
+     * @var array
+     */
+    private $config;
+
+    public function __construct()
+    {
+        $this->config = PayFactory::getPayConfig('alipay');
+        Factory::setOptions($this->config);
+        $this->app = Factory::payment();
+    }
     // +----------------------------------------------------------------------
     // | 支付配置
     // +----------------------------------------------------------------------
+    /**
+     * 支付成功通知处理
+     * @param Closure $callback
+     * @return string
+     * @throws \Exception
+     */
+    public function PayNotify($data,Closure $callback): string
+    {
+        try {
+            $ver = $this->app->common()->verifyNotify($data);
+            if(!$ver){ return '参数校验失败'; }
+        }
+        catch (\Exception $e){
+            return '参数错误:'.$e->getMessage();
+        }
+
+        $pay_order_id =$data['out_trade_no'];//商户订单号
+        Log::info("****************** 参数格式正确  ：${$pay_order_id}******************");
+        $pay_order = Model_PayOrder::get($pay_order_id);
+        if($pay_order==null){
+            Log::error($pay_order_id."订单查询错误！，请查看具体逻辑代码");
+            return '订单号错误';
+        }
+
+        Log::info("查询订单");
+        // 重新查询远程订单状态
+        $res = $this->QueryOrder($pay_order);
+        Log::info(json_encode($res));
+
+        if($res->tradeStatus!="TRADE_SUCCESS"){
+            return '订单未正确支付';
+        }
+        $amount =$data['total_amount'];
+        $channel_no = $data['trade_no']; //支付宝支付订单号
+        if ($data['trade_status'] === 'TRADE_SUCCESS') {
+            $pay_channel = $this->trade_type[$data['trade_type']];
+            $pay_order = PayFactory::PaySuccess($pay_channel, $amount, $pay_order_id, $channel_no); //更新支付订单
+            call_user_func($callback,$pay_order);
+
+            $pay_order = PayFactory::PaySuccess($pay_channel, $amount, $pay_order_id, $channel_no); //更新支付订单
+            call_user_func($callback,$pay_order);
+        } else {
+            return '通信失败，请稍后再通知我';
+        }
+        return 'success';
+    }
+
+
     /**
      * @return array
      */
@@ -50,53 +114,30 @@ class AlipayClient implements IChannelClient
     }
 
     /**
-     * 获得支付宝服务
-     * @return \Alipay\EasySDK\Kernel\Payment
-     */
-    public static function getAlipayApp()
-    {
-        $config = self::getAlipayConfig();
-        Factory::setOptions($config);
-        $app = Factory::payment();
-        return $app;
-    }
-    /**
      * 下预付单
-     * @param $pay_channel  string      支付渠道 WxPay,AliPay
-     * @param $pay_order        Model_PayOrder      订单标题
+     * @param Model_PayOrder $pay_order   订单标题
      * @param $extend array      业务订单号 商户订单号，商户网站订单系统中唯一订单号，必填
+     * @return \Alipay\EasySDK\Payment\Common\Models\AlipayTradeCreateResponse
+     * @throws \Exception
      */
-    public static function PrepayOrder(\JoinPhpPayment\base\Model_PayOrder $pay_order, array $extend)
+    public function PrepayOrder(Model_PayOrder $pay_order, array $extend)
     {
-        // 支付宝支付逻辑
-        $config = self::getAlipayConfig();
-        Log::info($config);
-        Factory::setOptions($config);
-        $app = Factory::payment();
-//        if($sub_merchant){
-//            $app->setSubMerchant($sub_merchant);  // 子商户 AppID 为可选项
-//        }
-        // 测试环境处理
-        if(Config::get('api.pay_test')==true){
-            $total_fee= 0.01; // 测试环境 一份钱测试
-        }
-        //拓展参数 建立返佣参数
-        $extend_params=[
-            'sys_service_provider_id'=>'2088331553170600'
-        ];
-        $result = $app->common()
-            ->optional('extend_params',$extend_params)
+        return $this->app->common()
             ->create(
-            $pay_order,
-            $extend,
-            $total_fee,
-            $openid);
-        return $result;
+            $pay_order['title'],
+            $pay_order['id'],
+            $pay_order['amount'],
+            $extend['openid']);
     }
-    public static function PayOrder($pay_order,$options){
+
+    /**
+     * @throws \Exception
+     */
+    public function PayOrder($pay_order, $options): string
+    {
         try {
             // 3.生成支付参数
-            $result=  self::PrepayOrder($pay_order['title'],$pay_order['id'],$pay_order['amount'],$options['openid']);
+            $result=  $this->PrepayOrder($pay_order,$options);
             //3. 处理响应或异常
             if (!empty($result->code) && $result->code == 10000) {
                 return $result->tradeNo;
@@ -110,14 +151,12 @@ class AlipayClient implements IChannelClient
 
     /**
      * 支付宝退款
-     * @param $pay_refund_order
-     * @return \Alipay\EasySDK\Payment\Common\Models\AlipayTradeRefundResponse
+     * @param Model_PayOrder $pay_refund_order
+     * @return string[]
      * @throws \Exception
      */
-    public static function RefundOrder($pay_refund_order){
-        $config = self::getAlipayConfig();
-        Factory::setOptions($config);
-        $app = Factory::payment();
+    public function RefundOrder($pay_refund_order):array{
+
         // 参数分别为：商户订单号、商户退款单号、订单金额、退款金额、其他参数
         // 测试环境处理
         if(Config::get('api.pay_test')==true){
@@ -125,14 +164,21 @@ class AlipayClient implements IChannelClient
             $pay_refund_order["pay_amount"] =  0.01;
             $pay_refund_order["refund_amount"] =  0.01;
         }
-        $result =  $app->common()
+        $result =  $this->app->common()
             ->optional("refund_reason",$pay_refund_order["refund_desc"])
             ->optional("out_request_no",$pay_refund_order["id"])
             ->refund(
                 $pay_refund_order['pay_id'],// $outTradeNo,
                 $pay_refund_order["refund_amount"] //$refundAmount
             );
-        return $result;
+        // 返回状态
+        if ($result->code === '10000') {
+            return [ "code"=>"success" ];
+        } else {
+            Log::error('支付宝退款错误：');
+            Log::error(json_encode($result));
+            return [ "code"=>"error","message"=> $result->msg.$result->subMsg ];
+        }
     }
 
     /**
@@ -141,12 +187,8 @@ class AlipayClient implements IChannelClient
      * @return \Alipay\EasySDK\Payment\Common\Models\AlipayTradeQueryResponse
      * @throws \Exception
      */
-    public static function QueryOrder($pay_order)
+    public function QueryOrder($pay_order)
     {
-        $config = self::getAlipayConfig();
-        Factory::setOptions($config);
-        $app = Factory::payment();
-        $res = $app->common()->query($pay_order['id']);
-        return $res;
+        return $this->app->common()->query($pay_order['id']);
     }
 }

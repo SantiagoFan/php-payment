@@ -57,8 +57,8 @@ class PayFactory
         $pay_order["apply_time"] = date('Y-m-d H:i:s');
         $pay_order["pay_channel"] = self::getPayChannel($options["client"]); // 客户端类型映射 支付通道
         $pay_order["state"] = Model_PayOrder::STATE_APPLY; // 1
+        $pay_order->save();
 
-//        $pay_order->save();
         $need_pay = true; // 是否需要实际支付（金额为0 不实际支付，走全部回调流程）
         if($pay_order['amount']==0){
             $need_pay = false;
