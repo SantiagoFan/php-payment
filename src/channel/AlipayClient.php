@@ -86,7 +86,7 @@ class AlipayClient implements IChannelClient
 
 
     /**
-     * @return array
+     * @return \Alipay\EasySDK\Kernel\Config
      */
     private function getConfig()
     {
