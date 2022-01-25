@@ -73,6 +73,30 @@ class PaymentConfig implements IPaymentConfig{
     }
 }
 ```
+配置示例
+```
+return [
+    // +----------------------------------------------------------------------
+    // | 微信 支付参数
+    // +----------------------------------------------------------------------
+    "wxpay"=>[
+        'app_id' => '',
+        'mch_id' => '',
+        'key' => '',
+        'pay_notify_url' =>'https://' . Config::get('app_host') . '/payment/notify/wxpay',
+        'refund_notify_url' =>'https://' . Config::get('app_host') . '/payment/notify/wxrefund'
+    ],
+    // +----------------------------------------------------------------------
+    // | 支付宝 支付参数
+    // +----------------------------------------------------------------------
+    alipay=>[
+        'app_id' => '',
+        'merchantPrivateKey' => '',
+        'alipayPublicKey'=>'',
+        'encryptKey'=>''
+    ]
+]
+```
 支付前注入配置
 ```php
 PaymentConfig::init();
