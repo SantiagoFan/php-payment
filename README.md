@@ -182,10 +182,15 @@ class MyOrder extends BasePayableOrder
 ```
 ### 6.编写业务调用支付
 ```php
-        // 查询或者创建订单
+        // 方式1：创建自己的业务订单
         // $bus_order =  new MyOrder();
+        // $bus_order['name'] ='用户充值';
+        // $bus_order['price'] = 11.00;
+    
+        // 方式2： 从数据库查询 后支付
         $bus_order = MyOrder::get('10001');
-        //支付客户端类型
+        
+        //支付客户端类型（就是你想调用哪种支付方式）
         $client = PayClient::WEIXIN_QRCODE; //小程序参数
         $params = [];
         // 获得支付参数
