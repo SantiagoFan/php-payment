@@ -35,6 +35,7 @@ class PayFactory
     {
         // 1.获取支付订单
         $tempOrder = $business_order->CreatePayOrder();
+        $tempOrder["business_name"] =$business_order->GetBusinessName();
         $pay_order = Model_PayOrder::where(
             [
                 'business_no'=>$tempOrder["business_no"],
@@ -127,9 +128,9 @@ class PayFactory
      */
     public static function RefundOrder(IPayableOrder $business_order,$refund_amount,$refund_reason){
         Log::info("--------开始发起退款------------");
-
         // 1.获取支付订单
         $tempOrder = $business_order->CreatePayOrder();
+        $tempOrder["business_name"] =$business_order->GetBusinessName();
         $pay_order = Model_PayOrder::where(
             [
                 'business_no'=>$tempOrder["business_no"],

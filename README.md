@@ -184,7 +184,6 @@ class MyOrder extends BasePayableOrder
 //        $pay_order['title']= $this['name']; // 支付标题
 //        $pay_order['amount']=  $this['price']; // 支付金额
 //        $pay_order['business_no']=  $this['order_no']; // 订单号
-//        $pay_order['business_name']= $this->GetBusinessName();
 //        return $pay_order;
     }
     public function PaySuccess(Model_PayOrder $pay_order)
@@ -219,4 +218,9 @@ class MyOrder extends BasePayableOrder
 微信js 支付需要传入openid
 ```php
 $params = ['openid'=>$openid];
+```
+
+支付宝js 支付需要传入buyer_id
+```php
+$params = ['buyer_id'=>$buyer_id];
 ```

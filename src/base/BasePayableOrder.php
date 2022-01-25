@@ -34,8 +34,7 @@ abstract class BasePayableOrder extends Model implements IPayableOrder
         $pay_order = new Model_PayOrder();
         $pay_order['title']= $this['title'];
         $pay_order['pay_amount']=  $this['amount'];
-        $pay_order['internal_no']=  $this['order_no'];
-        $pay_order['business_name']= $this->GetBusinessName();
+        $pay_order['business_no']=  $this['order_no'];
         return $pay_order;
     }
 
