@@ -48,7 +48,7 @@ class PaymentConfig implements IPaymentConfig{
         $config  = new self();
         PayFactory::init($config);
     }
-    // 注入配置信息
+    // 注入配置信息 配置信息可写到代码里 也可以写到单独文件里
     public function getPayConfig(string $type){
         // 微信支付参数
         if($type=='wxpay'){
