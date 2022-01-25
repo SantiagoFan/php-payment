@@ -6,7 +6,7 @@ create table pay_order
     channel_no  varchar(128)   null comment '支付渠道 返回的外部订单号',
     internal_no int            null comment '内部业务 关联订单号码',
     pay_channel varchar(50)    null comment '支付渠道：alipay,wxpay',
-    business_type    varchar(50)         null comment '业务类别：1.商品支付',
+    business_type    varchar(50)         null comment '业务类别：1.商品支付 等',
     amount      decimal(10, 2) null comment '待支付金额',
     pay_amount  decimal(10, 2) null comment '实际支付金额',
     pay_apply_time    datetime       null comment '下单时间',
