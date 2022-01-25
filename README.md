@@ -1,10 +1,11 @@
 # PHP-JOIN-PAYMENT php 支付工程
-GITHUB  https://github.com/SantiagoFan/php-payment
+GITHUB  https://github.com/SantiagoFan/php-payment  
 GITEE  https://gitee.com/san_fan/php-paymentgit
+### 整体框架
+![avatar](doc/支付中间件（draw可编辑）.svg)
+
 ### composer 安装
 需要 composer 版本2+
-
-![avatar](doc/支付中间件（draw可编辑）.svg)
 ```
 composer require join/php-payment
 ```
