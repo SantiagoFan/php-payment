@@ -30,7 +30,7 @@ class AlipayClient implements IChannelClient
 
     public function __construct()
     {
-        $this->config = PayFactory::getPayConfig('alipay');
+        $this->config = $this->getConfig();
         Factory::setOptions($this->config);
         $this->app = Factory::payment();
     }
@@ -88,9 +88,9 @@ class AlipayClient implements IChannelClient
     /**
      * @return array
      */
-    private static function getAlipayConfig()
+    private function getConfig()
     {
-        $cfg =  \config('api.alipay_mini');
+        $cfg = PayFactory::getPayConfig('alipay');
         $options = new \Alipay\EasySDK\Kernel\Config();
         $options->protocol = 'https';
         $options->gatewayHost = 'openapi.alipay.com';
