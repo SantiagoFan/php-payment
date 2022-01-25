@@ -84,9 +84,13 @@ class PaymentConfig implements IPaymentConfig{
     }
 }
 ```
-配置示例
+配置示例 config/payment.php
 ```
+<?php
+use think\facade\Config;
+use think\facade\Env;
 return [
+    // +----------------------------------------------------------------------
     // +----------------------------------------------------------------------
     // | 微信 支付参数
     // +----------------------------------------------------------------------
@@ -95,19 +99,21 @@ return [
         'mch_id' => '',
         'key' => '',
         'pay_notify_url' =>'https://' . Config::get('app_host') . '/payment/notify/wxpay',
-        'refund_notify_url' =>'https://' . Config::get('app_host') . '/payment/notify/wxrefund'
+        'refund_notify_url' =>'https://' . Config::get('app_host') . '/payment/notify/wxrefund',
+        'cert_path' =>Env::get('root_path'). 'cert/apiclient_cert.pem',
+        'key_path' =>Env::get('root_path'). 'cert/apiclient_key.pem'
     ],
     // +----------------------------------------------------------------------
     // | 支付宝 支付参数
     // +----------------------------------------------------------------------
-    alipay=>[
+    "alipay"=>[
         'app_id' => '',
         'merchantPrivateKey' => '',
         'alipayPublicKey'=>'',
         'encryptKey'=>'',
-        'pay_notify_url' => 'https://' . Config::get('app_host') . '/payment/notify/alipay';
+        'pay_notify_url' => 'https://' . Config::get('app_host') . '/payment/notify/alipay'
     ]
-]
+];
 ```
 支付前注入配置
 ```php
