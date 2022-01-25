@@ -50,6 +50,9 @@ class PaymentConfig implements IPaymentConfig{
         if($type=='wxpay'){
             return Config::get('payment.wxpay');
         }
+        if($type=='alipay'){
+            return Config::get('payment.alipay');
+        }
     }
     // 获取业务类实例
     public function getBusinessOrder(string $business_name): IPayableOrder
