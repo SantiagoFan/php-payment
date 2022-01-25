@@ -37,9 +37,23 @@ composer require join/php-payment
 ```
 vendor/join/php-payment/doc/model.sql
 ```
-1212|2121|2121
----|---|---|
-1212|212|
+字段|数据类型|可空|含义
+---|---|---|---|
+id |varchar(64)| not null| 支付记录表
+title |varchar(128)| null| 支付项目名称
+is_refund |tinyint(1)| null| 是否为退款
+state int |default 0| null| 支付完成状态 -1撤销 0 默认 1 交易中 2支付完成
+business_name| varchar(50)| null| 业务类别：1.商品支付
+business_no| varchar(128)| null| 内部业务 关联订单号码
+pay_channel| varchar(50)| null| 支付渠道：alipay,wxpay
+pay_channel_no| varchar(128)| null |支付渠道 返回的外部订单号
+amount| decimal(10,2)| null |操作金额 支付为正 退款为负
+real_amount| decimal(10,2)| null
+apply_time| datetime| null |下单时间
+complete_time| datetime| null |交易完成时间
+original_amount| decimal(10,2)| null |原订单交易金额
+original_id| varchar(64)| null |原始交易订单
+
 ### 3.编写配置类（实现 IPaymentConfig 接口）
 * getPayConfig 是获取微信支付宝支付通道所需参数的方法  
 * getBusinessOrder  是通过业务名称获取 业务类（具体指业务系统里需要有支付需求的订单如，商户购买订单、充值订单等）
