@@ -27,8 +27,8 @@ php：>=7.2.0
 3. New pull request(简称pr) 合并请求到主库等待合并
 
 
-## 使用教程
-### 1.安装包
+# 使用教程
+### 1.安装包 composer 包
 ```
 composer require join/php-payment
 ```
@@ -38,9 +38,9 @@ composer require join/php-payment
 vendor/join/php-payment/doc/model.sql
 ```
 ### 3.编写配置类（实现 IPaymentConfig 接口）
-getPayConfig 是获取微信支付宝支付通道所需参数的方法  
-getBusinessOrder  是通过业务名称获取 业务类（具体指业务系统里需要有支付需求的订单如，商户购买订单、充值订单等）
-
+* getPayConfig 是获取微信支付宝支付通道所需参数的方法  
+* getBusinessOrder  是通过业务名称获取 业务类（具体指业务系统里需要有支付需求的订单如，商户购买订单、充值订单等）
+* getPayChannel 是前端业务场景对应支付通道的配置
 ```php
 class PaymentConfig implements IPaymentConfig{
     // 注入配置
@@ -146,9 +146,9 @@ class NotifyController extends BaseNotifyController
 如果需要处理业务订单成功后的业务，请在相关业务model 里的PaySuccess方法处理
 
 ### 5.编写业务类 Model
-1.编写自己的业务类MyOrder(可以实现多个不同业务类，如商城订单、充值订单，myorder只是示例名字) 。  
-2.每个业务需要实现 IPayableOrder 或者直接继承 BasePayableOrder 基类省时省力  
-3.BasePayableOrder 集成了 Thinkphp 的Model 类，可直接集成Model的数据库操作函数
+* .编写自己的业务类MyOrder(可以实现多个不同业务类，如商城订单、充值订单，myorder只是示例名字) 。  
+* .每个业务需要实现 IPayableOrder 或者直接继承 BasePayableOrder 基类省时省力  
+* .BasePayableOrder 集成了 Thinkphp 的Model 类，可直接集成Model的数据库操作函数
 
 ```php
 class MyOrder extends BasePayableOrder
