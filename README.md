@@ -35,7 +35,7 @@ composer require join/php-payment
 ### 2.创建数据表
 复制源码文件夹的sql 脚本创建 交易流水表（此表作为所有支付进出的流水信息记录），具体业务信息请自己单独创建，参照下面的myorder
 ```
-vendor/join/php-payment/doc/model/model-[版本].sql
+vendor/join/php-payment/doc/model.sql
 ```
 ### 3.编写配置类（实现 IPaymentConfig 接口）
 getPayConfig 是获取微信支付宝支付通道所需参数的方法  
