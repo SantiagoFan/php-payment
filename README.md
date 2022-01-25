@@ -1,6 +1,6 @@
 # PHP-JOIN-PAYMENT php 支付工程
-GITHUB  https://github.com/SantiagoFan/php-payment  
-GITEE  https://gitee.com/san_fan/php-paymentgit
+github (最新代码)  https://github.com/SantiagoFan/php-payment  
+gitee (定期同步)  https://gitee.com/san_fan/php-paymentgit
 ### 整体框架
 ![avatar](doc/支付中间件（draw可编辑）.svg)
 
