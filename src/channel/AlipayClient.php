@@ -155,15 +155,9 @@ class AlipayClient implements IChannelClient
      * @return string[]
      * @throws \Exception
      */
-    public function RefundOrder($pay_refund_order):array{
+    public function RefundOrder(Model_PayOrder $pay_refund_order):array{
 
         // 参数分别为：商户订单号、商户退款单号、订单金额、退款金额、其他参数
-        // 测试环境处理
-        if(Config::get('api.pay_test')==true){
-            // 测试环境 一份钱测试
-            $pay_refund_order["pay_amount"] =  0.01;
-            $pay_refund_order["refund_amount"] =  0.01;
-        }
         $result =  $this->app->common()
             ->optional("refund_reason",$pay_refund_order["refund_desc"])
             ->optional("out_request_no",$pay_refund_order["id"])
@@ -184,7 +178,6 @@ class AlipayClient implements IChannelClient
     /**
      * 查询 支付平台订单信息
      * @param $pay_order
-     * @return \Alipay\EasySDK\Payment\Common\Models\AlipayTradeQueryResponse
      * @throws \Exception
      */
     public function QueryOrder($pay_order)
