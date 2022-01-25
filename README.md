@@ -146,7 +146,7 @@ class NotifyController extends BaseNotifyController
 如果需要处理业务订单成功后的业务，请在相关业务model 里的PaySuccess方法处理
 
 ### 5.编写业务类 Model
-* .编写自己的业务类MyOrder(可以实现多个不同业务类，如商城订单、充值订单，<font color='red'>MyOrder只是示例名字</font>) 。  
+* .编写自己的业务类MyOrder(可以实现多个不同业务类，如商城订单、充值订单，***<font color='red'>MyOrder只是示例名字</font>***) 。  
 * .每个业务需要实现 IPayableOrder 或者直接继承 BasePayableOrder 基类省时省力  
 * .BasePayableOrder 集成了 Thinkphp 的Model 类，可直接集成Model的数据库操作函数
 
