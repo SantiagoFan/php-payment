@@ -4,6 +4,7 @@ namespace JoinPhpPayment\channel;
 
 use Alipay\EasySDK\Kernel\Factory;
 use Alipay\EasySDK\Kernel\Payment;
+use JoinPhpPayment\core\PayChannel;
 use JoinPhpPayment\core\PayFactory;
 use JoinPhpPayment\model\Model_PayOrder;
 use think\Exception;
@@ -117,30 +118,44 @@ class AlipayClient implements IChannelClient
      * 下预付单
      * @param Model_PayOrder $pay_order   订单标题
      * @param $extend array      业务订单号 商户订单号，商户网站订单系统中唯一订单号，必填
-     * @return \Alipay\EasySDK\Payment\Common\Models\AlipayTradeCreateResponse
      * @throws \Exception
      */
     public function PrepayOrder(Model_PayOrder $pay_order, array $extend)
     {
-        return $this->app->common()
-            ->create(
-            $pay_order['title'],
-            $pay_order['id'],
-            $pay_order['amount'],
-            $extend['openid']);
+        if($pay_order['pay_channel']== PayChannel::ALI_PAY_NATIVE){
+            return $this->app->faceToFace()
+                ->preCreate(
+                    $pay_order['title'],
+                    $pay_order['id'],
+                    $pay_order['amount']
+                );
+        }
+        else{
+            return $this->app->common()
+                ->create(
+                    $pay_order['title'],
+                    $pay_order['id'],
+                    $pay_order['amount'],
+                    $extend['buyer_id']);
+        }
     }
 
     /**
      * @throws \Exception
      */
-    public function PayOrder($pay_order, $options): string
+    public function PayOrder($pay_order, $options): array
     {
         try {
             // 3.生成支付参数
             $result=  $this->PrepayOrder($pay_order,$options);
             //3. 处理响应或异常
             if (!empty($result->code) && $result->code == 10000) {
-                return $result->tradeNo;
+                if($pay_order['pay_channel']== PayChannel::ALI_PAY_NATIVE){
+                    return ['qrcode'=>$result->qrCode];
+                }
+                else{
+                    return ['trade_no'=>$result->tradeNo];
+                }
             } else {
                 throw new \Exception("alipay:下预付单错误-".$result->msg.",".$result->sub_msg);
             }

@@ -40,7 +40,7 @@ vendor/join/php-payment/doc/model.sql
 字段|数据类型|可空|含义
 ---|---|---|---|
 id |varchar(64)| not null| 支付记录表
-title |varchar(128)| null| 支付项目名称
+title |varchar(128)| null| 支付项目名称 如：商品-橘子5斤
 is_refund |tinyint(1)| null| 是否为退款
 state int |default 0| null| 支付完成状态 -1撤销 0 默认 1 交易中 2支付完成
 business_name| varchar(50)| null| 业务类别：1.商品支付
@@ -163,7 +163,7 @@ class NotifyController extends BaseNotifyController
 如果需要处理业务订单成功后的业务，请在相关业务model 里的PaySuccess方法处理
 
 ### 5.编写业务类 Model
-* .编写自己的业务类MyOrder(可以实现多个不同业务类，如商城订单、充值订单，***<font color='red'>MyOrder只是示例名字，具体的写自己的名字</font>***) 。  
+* .编写自己的业务类MyOrder(可以实现多个不同业务类，如商城订单、充值订单，***<font color='red'>MyOrder只是示例名字，具体的写自己的名字！！！！</font>***) 。  
 * .每个业务需要实现 IPayableOrder 或者直接继承 BasePayableOrder 基类省时省力  
 * .BasePayableOrder 集成了 Thinkphp 的Model 类，可直接集成Model的数据库操作函数
 
@@ -199,6 +199,8 @@ class MyOrder extends BasePayableOrder
 ```
 ### 6.编写业务调用支付
 ```php
+        // 注入配置参数（全局注入则不用写这个）
+        PaymentConfig::init();
         // 方式1：创建自己的业务订单
         // $bus_order =  new MyOrder();
         // $bus_order['name'] ='用户充值';
