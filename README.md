@@ -50,14 +50,14 @@ class PaymentConfig implements IPaymentConfig{
     }
     // 注入配置信息 配置信息可写到代码里 也可以写到单独文件里
     public function getPayConfig(string $type){
-        // 微信支付参数
-        if($type=='wxpay'){
-            return Config::get('payment.wxpay');
-        }
-        // 支付宝支付参数
-        if($type=='alipay'){
-            return Config::get('payment.alipay');
-        }
+        // 方式一：代码里直接编写参数
+//        $config = [
+//           "wxpay"=>[],
+//           "alipay"=>[]
+//        ];
+        // 方式二：单独配置文件  config/payment.php
+        $config = Config::get('payment.');
+        return $config[$type];
     }
     // 获取业务类实例
     public function getBusinessOrder(string $business_name): IPayableOrder
