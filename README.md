@@ -4,6 +4,7 @@ GITEE  https://gitee.com/san_fan/php-paymentgit
 ### composer 安装
 需要 composer 版本2+
 
+![avatar](doc/支付中间件（draw可编辑）.svg)
 ```
 composer require join/php-payment
 ```
