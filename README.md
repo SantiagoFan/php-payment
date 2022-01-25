@@ -63,12 +63,11 @@ class PaymentConfig implements IPaymentConfig{
     public function getBusinessOrder(string $business_name): IPayableOrder
     {
         // 具体请映射业务类
-        if($business_name =='my_order'){
-//            return new MyOrder();
-        }
-        else{
-            throw new Exception('业务订单未定义：'.$business_name);
-        }
+        $business_map=[
+             "my_order"=> new MyOrder(),
+             "my_order2"=>new MyOrder2()
+        ];
+        return $business_map[$business_name];
     }
     // 配置客户端 对应支付通道
     public function getPayChannel(string $client): string
