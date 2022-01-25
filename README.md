@@ -38,6 +38,9 @@ composer require join/php-payment
 vendor/join/php-payment/doc/model/model-[版本].sql
 ```
 ### 3.编写配置类（实现 IPaymentConfig 接口）
+getPayConfig 是获取微信支付宝支付通道所需参数的方法  
+getBusinessOrder  是通过业务名称获取 业务类（具体指业务系统里需要有支付需求的订单如，商户购买订单、充值订单等）
+
 ```php
 class PaymentConfig implements IPaymentConfig{
     // 注入配置
@@ -47,9 +50,11 @@ class PaymentConfig implements IPaymentConfig{
     }
     // 注入配置信息
     public function getPayConfig(string $type){
+        // 微信支付参数
         if($type=='wxpay'){
             return Config::get('payment.wxpay');
         }
+        // 支付宝支付参数
         if($type=='alipay'){
             return Config::get('payment.alipay');
         }
