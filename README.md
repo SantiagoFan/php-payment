@@ -93,7 +93,8 @@ return [
         'app_id' => '',
         'merchantPrivateKey' => '',
         'alipayPublicKey'=>'',
-        'encryptKey'=>''
+        'encryptKey'=>'',
+        'pay_notify_url' => 'https://' . Config::get('app_host') . '/payment/notify/alipay';
     ]
 ]
 ```

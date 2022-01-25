@@ -106,7 +106,7 @@ class AlipayClient implements IChannelClient
         $options->alipayPublicKey = $cfg['alipayPublicKey'];
 
         //可设置异步通知接收服务地址（可选）
-        $options->notifyUrl = 'https://' . Config::get('app_host') . '/payment/notify/alipay';
+        $options->notifyUrl = $cfg['pay_notify_url'];
 
         //可设置AES密钥，调用AES加解密相关接口时需要（可选）
         $options->encryptKey =  $cfg['encryptKey'];
