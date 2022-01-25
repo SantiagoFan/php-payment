@@ -19,6 +19,6 @@ create table if not exists pay_order
     unique (id)
     );
 
-alter table testdb.pay_order
+alter table pay_order
     add primary key (id);
 
