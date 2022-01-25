@@ -196,3 +196,8 @@ class MyOrder extends BasePayableOrder
         // 获得支付参数
         $res = $bus_order->PayOrder($client, $params);
 ```
+#### 支付传入参数 $params
+微信js 支付需要传入openid
+```php
+$params = ['openid'=>$openid];
+```
