@@ -48,7 +48,11 @@ class PaymentConfig implements IPaymentConfig{
         $config  = new self();
         PayFactory::init($config);
     }
-    // 注入配置信息 配置信息可写到代码里 也可以写到单独文件里
+    /**
+    * 注入配置信息
+    * @param string $type
+    * @return mixed
+    */
     public function getPayConfig(string $type){
         // 方式一：代码里直接编写参数
 //        $config = [
@@ -59,7 +63,11 @@ class PaymentConfig implements IPaymentConfig{
         $config = Config::get('payment.');
         return $config[$type];
     }
-    // 获取业务类实例
+    /**
+    * 获取业务类实例
+    * @param string $business_name
+    * @return IPayableOrder
+    */
     public function getBusinessOrder(string $business_name): IPayableOrder
     {
         // 具体请映射业务类
@@ -69,7 +77,11 @@ class PaymentConfig implements IPaymentConfig{
         ];
         return $business_map[$business_name];
     }
-    // 配置客户端 对应支付通道
+    /**
+    * 配置客户端 对应支付通道
+    * @param string $client
+    * @return string
+    */
     public function getPayChannel(string $client): string
     {
         // 客戶端支付方式映射支付渠道
