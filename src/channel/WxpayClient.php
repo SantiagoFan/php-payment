@@ -92,7 +92,7 @@ class WxpayClient implements IChannelClient
             $amount = $data['total_fee']/100; // 单位 分转元
             $channel_no = $data['transaction_id']; //微信支付订单号
 
-            Log::info("****************** 参数格式正确  ：${$pay_order_id}******************");
+            Log::info("****************** 参数格式正确  ：${pay_order_id}******************");
 
             $pay_order = Model_PayOrder::get($pay_order_id);
             if($pay_order==null){
@@ -113,7 +113,9 @@ class WxpayClient implements IChannelClient
                 if ($data['result_code'] === 'SUCCESS') {
                     $pay_channel = $this->trade_type[$data['trade_type']];
                     $pay_order = PayFactory::PaySuccess($pay_channel, $amount, $pay_order_id, $channel_no); //更新支付订单
-                    call_user_func($callback,$pay_order);
+                    if($pay_order){ // 未空表示已经出来过
+                        call_user_func($callback,$pay_order);
+                    }
                 }
             } else {
                 return $fail('通信失败，请稍后再通知我');

@@ -37,7 +37,7 @@ abstract class BaseNotifyController extends Controller
     public function alipay(){
         $data = input('post.');
         $app = new AlipayClient();
-        return $app->RefundNotify($data,function ($pay_order){
+        return $app->PayNotify($data,function ($pay_order){
             $this->PaySuccess($pay_order);
         });
     }

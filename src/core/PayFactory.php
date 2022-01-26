@@ -92,7 +92,7 @@ class PayFactory
             Log::error("订单{$pay_order_id}不存在！");
             return;
         };
-        if ($pay_order['state'] == 1) {
+        if ($pay_order['state'] == Model_PayOrder::STATE_SUCCESS) {
             Log::info('订单已经处理支付，跳过处理流程,订单：'.json_encode($pay_order->toArray()));
             return;
         };

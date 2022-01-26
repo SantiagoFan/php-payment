@@ -10,6 +10,7 @@ use JoinPhpPayment\model\Model_PayOrder;
 use think\Exception;
 use think\facade\Config;
 use think\facade\Log;
+use Closure;
 
 // 支付成功出口
 
@@ -54,8 +55,8 @@ class AlipayClient implements IChannelClient
             return '参数错误:'.$e->getMessage();
         }
 
-        $pay_order_id =$data['out_trade_no'];//商户订单号
-        Log::info("****************** 参数格式正确  ：${$pay_order_id}******************");
+        $pay_order_id =$data['out_trade_no'];//商户订单号 他就说这这个地方的这个号定义没
+        Log::info("****************** 参数格式正确  ：${pay_order_id}******************");
         $pay_order = Model_PayOrder::get($pay_order_id);
         if($pay_order==null){
             Log::error($pay_order_id."订单查询错误！，请查看具体逻辑代码");
@@ -73,12 +74,11 @@ class AlipayClient implements IChannelClient
         $amount =$data['total_amount'];
         $channel_no = $data['trade_no']; //支付宝支付订单号
         if ($data['trade_status'] === 'TRADE_SUCCESS') {
-            $pay_channel = $this->trade_type[$data['trade_type']];
+            $pay_channel = $pay_order['pay_channel'];
             $pay_order = PayFactory::PaySuccess($pay_channel, $amount, $pay_order_id, $channel_no); //更新支付订单
-            call_user_func($callback,$pay_order);
-
-            $pay_order = PayFactory::PaySuccess($pay_channel, $amount, $pay_order_id, $channel_no); //更新支付订单
-            call_user_func($callback,$pay_order);
+            if($pay_order){ // 未空表示已经出来过
+                call_user_func($callback,$pay_order);
+            }
         } else {
             return '通信失败，请稍后再通知我';
         }
@@ -86,9 +86,6 @@ class AlipayClient implements IChannelClient
     }
 
 
-    /**
-     * @return \Alipay\EasySDK\Kernel\Config
-     */
     private function getConfig()
     {
         $cfg = PayFactory::getPayConfig('alipay');
