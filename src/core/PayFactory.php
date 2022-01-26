@@ -167,7 +167,7 @@ class PayFactory
                 $refund_order->save();
                 self::RefundSuccess(
                     $refund_order_id,
-                    $refund_order_id['amount'],
+                    $refund_order['amount'],
                     $pay_order['original_id'],
                     $res['refund_channel_no']
                 );
