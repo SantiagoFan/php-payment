@@ -111,9 +111,9 @@ class WxpayClient implements IChannelClient
             if ($data['return_code'] === 'SUCCESS') { // return_code 表示通信状态，不代表支付状态
                 // 用户是否支付成功
                 if ($data['result_code'] === 'SUCCESS') {
-                    $pay_channel = $this->trade_type[$data['trade_type']];
+                    $pay_channel = $pay_order['pay_channel'];
                     $pay_order = PayFactory::PaySuccess($pay_channel, $amount, $pay_order_id, $channel_no); //更新支付订单
-                    if($pay_order){ // 未空表示已经出来过
+                    if($pay_order){ // 空表示已经处理过
                         call_user_func($callback,$pay_order);
                     }
                 }

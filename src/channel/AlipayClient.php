@@ -76,7 +76,7 @@ class AlipayClient implements IChannelClient
         if ($data['trade_status'] === 'TRADE_SUCCESS') {
             $pay_channel = $pay_order['pay_channel'];
             $pay_order = PayFactory::PaySuccess($pay_channel, $amount, $pay_order_id, $channel_no); //更新支付订单
-            if($pay_order){ // 未空表示已经出来过
+            if($pay_order){ // 空表示已经处理过
                 call_user_func($callback,$pay_order);
             }
         } else {
