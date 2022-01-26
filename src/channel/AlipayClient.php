@@ -173,6 +173,7 @@ class AlipayClient implements IChannelClient
         $result =  $this->app->common()
             ->optional("refund_reason",$pay_refund_order["refund_desc"])
             ->optional("out_request_no",$pay_refund_order["id"])
+            ->optional("query_options",['refund_detail_item_list'])
             ->refund(
                 $pay_refund_order['pay_id'],// $outTradeNo,
                 $pay_refund_order["refund_amount"] //$refundAmount
