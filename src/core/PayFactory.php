@@ -96,6 +96,10 @@ class PayFactory
             Log::info('订单已经处理支付，跳过处理流程,订单：'.json_encode($pay_order->toArray()));
             return;
         };
+        if ($pay_order['state'] != Model_PayOrder::STATE_APPLY) {
+            Log::error('订单非待支付状态，无法完成PaySuccess流程,订单：'.json_encode($pay_order->toArray()));
+            return;
+        };
         //-------------- 支付系统处理---------------------
         try {
             //更新支付流水状态

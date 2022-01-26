@@ -178,14 +178,14 @@ class MyOrder extends BasePayableOrder
     * 如果业务类包含：title、amount、order_no 则无需编写次方法
      * @return Model_PayOrder
      */
-    public function CreatePayOrder():Model_PayOrder
-    {
+//    public function CreatePayOrder():Model_PayOrder
+//    {
 //        $pay_order = new Model_PayOrder();
 //        $pay_order['title']= $this['name']; // 支付标题
 //        $pay_order['amount']=  $this['price']; // 支付金额
 //        $pay_order['business_no']=  $this['order_no']; // 订单号
 //        return $pay_order;
-    }
+//    }
     public function PaySuccess(Model_PayOrder $pay_order)
     {
         // 支付成功后 业务单 后续逻辑

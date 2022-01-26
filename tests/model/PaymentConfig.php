@@ -34,6 +34,16 @@ class PaymentConfig implements IPaymentConfig
         }
     }
 
+    public $business_map = [
+        '商城订单' =>MyOrder::class,
+        'my_order'=>MyOrder::class,
+    ];
+
+    public function getBusinessName(IPayableOrder $order){
+        $className = get_class($order);
+        echo array_search($className,$this->business_map);
+    }
+
     /**
      * 获取业务订单实例
      * @param string $business_name
@@ -42,6 +52,11 @@ class PaymentConfig implements IPaymentConfig
      */
     public function getBusinessOrder(string $business_name): IPayableOrder
     {
+        $className =  $this->business_name[$business_name];
+        $obj=  new $className();
+
+
+
         if($business_name =='my_order'){
             return new MyOrder();
         }

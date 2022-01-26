@@ -54,7 +54,7 @@ class Model_PayOrder extends Model
         $this['real_amount'] = $refund_amount;
         $this["state"] = self::STATE_SUCCESS;;
         $this['complete_time'] = date("Y-m-d H:i:s ");
-//        $this->save();
+        $this->save();
         return $this;
     }
 
