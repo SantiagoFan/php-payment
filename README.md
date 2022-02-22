@@ -56,7 +56,7 @@ original_id| varchar(64)| null |原始交易订单
 
 ### 3.编写配置类（实现 IPaymentConfig 接口）
 * getPayConfig 是获取微信支付宝支付通道所需参数的方法  
-* getBusinessOrder  是通过业务名称获取 业务类（具体指业务系统里需要有支付需求的订单如，商户购买订单、充值订单等）
+* getBusinessMap  是通过业务名称获取 业务类（具体指业务系统里需要有支付需求的订单如，商户购买订单、充值订单等）
 * getPayChannel 是前端业务场景对应支付通道的配置
 ```php
 class PaymentConfig implements IPaymentConfig{
