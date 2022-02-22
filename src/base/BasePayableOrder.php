@@ -13,20 +13,6 @@ use think\Model;
 abstract class BasePayableOrder extends Model implements IPayableOrder
 {
     /**
-     * 业务类型
-     * @var string
-     */
-    protected $business_name = 'business_order';
-
-    /**
-     * 获取业务类型
-     * @return string
-     */
-    public function GetBusinessName(): string
-    {
-        return  $this->business_name;
-    }
-    /**
      * 创建订单
      * @return Model_PayOrder
      */
@@ -48,7 +34,6 @@ abstract class BasePayableOrder extends Model implements IPayableOrder
     public function PayOrder(string $client, array $options): array
     {
         $options["client"] = $client;
-        $options['business_name']= $this->GetBusinessName();
         // 调用服务获取参数
         return PayFactory::PayOrder($this,$options);
     }

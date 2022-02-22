@@ -10,11 +10,6 @@ use JoinPhpPayment\model\Model_PayOrder;
 Interface IPayableOrder
 {
     /**
-     * 获取业务类型名称
-     * @return string
-     */
-    public function GetBusinessName(): string;
-    /**
      * 业务订单转 支付订单
      * @return Model_PayOrder 支付订单
      */

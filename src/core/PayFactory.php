@@ -35,7 +35,7 @@ class PayFactory
     {
         // 1.获取支付订单
         $tempOrder = $business_order->CreatePayOrder();
-        $tempOrder["business_name"] =$business_order->GetBusinessName();
+        $tempOrder["business_name"] = self::getBusinessName($business_order);
         $pay_order = Model_PayOrder::where(
             [
                 'business_no'=>$tempOrder["business_no"],
@@ -113,7 +113,7 @@ class PayFactory
 
         //-------------- 业务系统处理---------------------
         try {
-            $business_order =  self::$paymentConfig->getBusinessOrder($pay_order['business_name']);
+            $business_order =  self::getBusinessOrder($pay_order['business_name']);
             $business_order->PaySuccess($pay_order);
         }
         catch (\Exception $e){
@@ -134,7 +134,7 @@ class PayFactory
         Log::info("--------开始发起退款------------");
         // 1.获取支付订单
         $tempOrder = $business_order->CreatePayOrder();
-        $tempOrder["business_name"] =$business_order->GetBusinessName();
+        $tempOrder["business_name"] = self::getBusinessName($business_order);
         $pay_order = Model_PayOrder::where(
             [
                 'business_no'=>$tempOrder["business_no"],
@@ -214,7 +214,7 @@ class PayFactory
 
         //-------------- 业务系统处理---------------------
         try {
-            $business_order = self::$paymentConfig->getBusinessOrder($refund_order['business_name']);
+            $business_order = self::getBusinessOrder($refund_order['business_name']);
             $business_order->RefundedSuccess($refund_order);
         }
         catch (\Exception $e){
@@ -252,5 +252,25 @@ class PayFactory
      */
     public static function getPayConfig($key){
         return self::$paymentConfig->getPayConfig($key);
+    }
+
+    /**
+     * 通过业务名称获取实例
+     */
+    public static function getBusinessOrder(string $business_name){
+        $map = self::$paymentConfig->getBusinessMap();
+        $class_name = $map[$business_name];
+        return new $name();
+    }
+
+    /**
+     * 通过实例获取业务名称
+     * @param IPayableOrder $order
+     */
+    public static function getBusinessName(IPayableOrder $order){
+        $class_name = get_class($order);
+        $map = self::$paymentConfig->getBusinessMap();
+        $name = array_search($class_name,$map);
+        return $name;
     }
 }

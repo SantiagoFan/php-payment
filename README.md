@@ -81,18 +81,14 @@ class PaymentConfig implements IPaymentConfig{
         return $config[$type];
     }
     /**
-    * 获取业务类实例
-    * @param string $business_name
-    * @return IPayableOrder
-    */
-    public function getBusinessOrder(string $business_name): IPayableOrder
-    {
+     * 获取业务类映射关系
+     * @return array|mixed
+     */
+    public function getBusinessMap(){
         // 具体请映射业务类
-        $business_map=[
-             "my_order"=> new MyOrder(),
-             "my_order2"=>new MyOrder2()
+        return [
+            "recharge_order"=>Model_MemberBalance::class,
         ];
-        return $business_map[$business_name];
     }
     /**
     * 配置客户端 对应支付通道
@@ -172,7 +168,6 @@ class MyOrder extends BasePayableOrder
 {
     // 业务名称
     protected $pk ='order_no';
-    protected $business_name = 'my_order';
     /**
      * 因为字段不一样 覆盖父级方法
     * 如果业务类包含：title、amount、order_no 则无需编写次方法

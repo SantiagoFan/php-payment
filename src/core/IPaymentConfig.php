@@ -20,13 +20,12 @@ Interface IPaymentConfig
      * @return mixed
      */
     public static function init();
-    /**
-     * 工厂方法：根据业务类型获取 业务类
-     * @param string $business_name
-     * @return IPayableOrder
-     */
-    public function getBusinessOrder(string $business_name):IPayableOrder;
 
+    /**
+     * 获取业务名称映射表
+     * @return mixed
+     */
+    public function getBusinessMap();
     /**
      * 获取支付配置
      * @param string $type
